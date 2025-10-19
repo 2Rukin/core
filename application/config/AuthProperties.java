@@ -1,0 +1,42 @@
+package ru.application.config;
+
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.validation.annotation.Validated;
+
+/**
+ * Настройки авторизации/соединения с Finam Trade API.
+ */
+@Data
+@Validated
+@ConfigurationProperties(prefix = "finam.auth")
+public class AuthProperties {
+
+    /**
+     * Секрет, который меняется на JWT-токен методом Auth.
+     * Никогда не логировать.
+     */
+    @NotBlank
+    private String secret = "eyJraWQiOiJjOTMzNzAyMC0zMjA4LTRkYTUtYTRiZC0yODk4ZTc0NTc5ODAiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhcmVhIjoidHQiLCJwYXJlbnQiOiIzZWMwYzQxYy0yNzZhLTQwNGUtYTI3Ni05Nzg3MzRiZjdkYTUiLCJhcGlUb2tlblByb3BlcnRpZXMiOiJINHNJQUFBQUFBQUFfeldUdlhMVU1CREhMeWNmdVRtNkxWT0dMalBNY0FHU1dwWWxuempMZGlUNXprZmpKalVVUEFjbEw4RFEwX0VxUEVaZWdmMFF6ZS1fa2xZZjZfMTctX2ZYeTVfdkgyRzlWVGVfcS0zNmRuVjN2ZHU4aVhWc0pEQjE1T0I4TnVQZHExMmx3enl3UmpPVDFqb24xbE53cEhZZUE2bTNjOHZxN0NRNmNWN3dpZmNOUXphc1k5U3MyZFJGUTlFbjB0SDNwcWd2MmhYbGM4YlVjbjdNY202Y1JHY2RrbWl5UldXLUhvSm9uRVFuV1RlMUs1cEZyUkVOc201elpIWHkzcm5Wa25jNHVxSmM3OXcxdldqWjE1WDd1a0htZzI1WWV5M3Y2NlhldVdfTHVMeTd2NVQ1aTR4SExmZW5neTBxOTZXejFKV1BpUnExMUwweEhKamE4NDdGWUdkNElsNUdEdXdVYXc1Q3FEOXowSS1SdTdvazQtODJPN1VreVV4alNVamo4NTZESEcyNnYxcjl2RnJ2VmpjX3FxMENwZTJNU0pid1JNQWgyZ0x4UktBRl9NaFExVi1fUE1PRy1BMFVmbTRDSnBpRFJ3Ukx3SjNtWk9HNi1lVDdobzYxMHd6c0tiaDJMaXdoN3FGeXZ0ZXdJNGFsbWZJRk5tN0E5b055ZU5YYTRhN1dSbEFIaDBkaVYwQjVPeUVtek9qTUJVRjNkZlFzN0FYQzRJNkFsMVVoYUh4S2lDZFEyQjFFSUNSUENBU3NEdHRDNENnQjJ4alVrRFN3ZzVtQmlSbllNbUFETXoyelktSmw0ekh0bWUtWkh6QWRuOFItQmhVTmZwaVlhOWpFQ2Y5QVVFa1BDSnNJdUpSYVBBSHhGc1BEQWVGeFU4cFlDTm9CVkc2dzZ0eWRvTXBZRTRZREhwRXZlTVNrY2ZsTXRjLTRwU0szZ0hpR0J0a3hzYTdGVUJsa0hSRGpnTmdHNTlwR2cxZ0h4Q0FncnJoZF9mZkY3ZXY5NDhQal9idjRHTWFIZjlhNW1GQmlCQUFBIiwic2NvbnRleHQiOiJDaEFJQnhJTWRISmhaR1ZmWVhCcFgzSjFDaWdJQXhJa016YzJNRGRrTkdRdE5qUXdaUzAwT0dRMkxUZzNORFl0TW1aaE4yWm1ZelZtWlRRekNnUUlCUklBQ2drSUFCSUZhSFJ0YkRVS0tBZ0NFaVJrWTJOaU5ETmxNUzA1WXpVMExURXhaakF0WWpNNVpTMWlOV0l5WldKbE5XTTFORE1LQlFnSUVnRXpDZ1FJQ1JJQUNna0lDaElGTVM0MkxqUUtLQWdFRWlSak9UTXpOekF5TUMwek1qQTRMVFJrWVRVdFlUUmlaQzB5T0RrNFpUYzBOVGM1T0RBeVRRb1ZWRkpCUkVWQlVFbGZTMUpCVkU5VFgxUlBTMFZPRUFFWUFTQUJLZ2RGUkU5WVgwUkNPZ0lJQTBvVENnTUlod2NTQlFpSG9aNEJHZ1VJaDViREFWZ0JZQUZvQVhJR1ZIaEJkWFJvIiwiemlwcGVkIjp0cnVlLCJjcmVhdGVkIjoiMTc1OTY2NDM2NyIsInJlbmV3RXhwIjoiMTgyNDY3MDg2MyIsInNlc3MiOiJINHNJQUFBQUFBQUEvMU5xWmVSU01UUTFNN0ZJczB6Uk5UVTNOZGMxTVRVMzBMVXdTRFFBc2l6U1ROSU1MQ3pUekpLRmhDNU11ckQ3d29ZTFd5N3N1TmdJWm0yUzRydXc2R0x6eFlhTHpSZDJYZGh4WWErU2NFbFpXVzUrVW1aT3FrTjZibUptamw1eWZtNlNpcU9qdWJHcnBaR3Byckd4Z2FtdWlaR1poYTZUcWFXcnJwT2ppNFd6bzR1eG82R0o4UzVHWGk3V2VMK0FJSDhoRm44bi93Z0FVRExFWkpnQUFBQSIsImlzcyI6InR4c2VydmVyIiwia2V5SWQiOiJjOTMzNzAyMC0zMjA4LTRkYTUtYTRiZC0yODk4ZTc0NTc5ODAiLCJ0eXBlIjoiQXBpVG9rZW4iLCJzZWNyZXRzIjoiNS8xK3RiZjNza0F1MldscHVLLzd4Zz09Iiwic2NvcGUiOiIiLCJ0c3RlcCI6ImZhbHNlIiwic3BpblJlcSI6ZmFsc2UsImV4cCI6MTgyNDY3MDgwMywic3BpbkV4cCI6IjE4MjQ2NzA4NjMiLCJqdGkiOiIzNzYwN2Q0ZC02NDBlLTQ4ZDYtODc0Ni0yZmE3ZmZjNWZlNDMifQ.heoOwgJ6gGxWpP03aYzEs7OnJ6APdlZAXo0YIXPi01D2BquIGg2fq-Akfifn1QgR2Rk7O4YSEC2gaFq6SQ59sg";
+
+    /**
+     * gRPC-хост Finam Trade API.
+     */
+    @NotBlank
+    private String host = "api.finam.ru";
+
+    /**
+     * gRPC-порт Finam Trade API.
+     */
+    @Min(1)
+    private int port = 443;
+
+    /**
+     * Запас на упреждающее обновление токена, сек.
+     * Рекомендуется 60–120 сек.
+     */
+    @Min(0)
+    private int refreshSkewSeconds = 90;
+}
