@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- поправь groupId/artifactId/version, если в корневом POM другие -->
+  <parent>
+    <groupId>ru</groupId>
+    <artifactId>finam-trade-client</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>ui-client</artifactId>
+  <name>UI Client</name>
+  <packaging>jar</packaging>
+  <description>JavaFX UI client (M1: direct-kafka)</description>
+
+  <properties>
+    <!-- JDK версию наследуем от родителя; JavaFX 21 работает на JDK 17+ -->
+    <javafx.version>21.0.4</javafx.version>
+
+    <!-- UI libs -->
+    <controlsfx.version>11.2.1</controlsfx.version>
+    <workbenchfx.version>11.3.1</workbenchfx.version>
+    <flowless.version>0.7.3</flowless.version>
+    <reactfx.version>2.0-M5</reactfx.version>
+    <ikonli.version>12.3.1</ikonli.version>
+    <atlantafx.version>2.0.1</atlantafx.version>
+
+    <!-- Confluent / Protobuf -->
+    <confluent.version>7.7.1</confluent.version>
+    <protobuf.version>3.25.3</protobuf.version>
+  </properties>
+
+  <dependencies>
+    <!-- Модель сообщений из проекта: не дублируем proto, используем domain -->
+    <dependency>
+      <groupId>ru</groupId>
+      <artifactId>domain</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <!-- JavaFX -->
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-graphics</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+
+    <!-- Kafka + Confluent Protobuf + Schema Registry -->
+    <!-- Версию kafka-clients можно не фиксировать: её даст родитель (Spring Boot BOM);
+         если родитель не управляет – добавь явную версию -->
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-clients</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.confluent</groupId>
+      <artifactId>kafka-protobuf-serializer</artifactId>
+      <version>${confluent.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.confluent</groupId>
+      <artifactId>kafka-schema-registry-client</artifactId>
+      <version>${confluent.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+      <version>${protobuf.version}</version>
+    </dependency>
+
+    <!-- UI helper libs -->
+    <dependency>
+      <groupId>org.controlsfx</groupId>
+      <artifactId>controlsfx</artifactId>
+      <version>${controlsfx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.dlsc.workbenchfx</groupId>
+      <artifactId>workbenchfx-core</artifactId>
+      <version>${workbenchfx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.fxmisc.flowless</groupId>
+      <artifactId>flowless</artifactId>
+      <version>${flowless.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.reactfx</groupId>
+      <artifactId>reactfx</artifactId>
+      <version>${reactfx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.kordamp.ikonli</groupId>
+      <artifactId>ikonli-javafx</artifactId>
+      <version>${ikonli.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.kordamp.ikonli</groupId>
+      <artifactId>ikonli-material2-pack</artifactId>
+      <version>${ikonli.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.github.mkpaz</groupId>
+      <artifactId>atlantafx-base</artifactId>
+      <version>${atlantafx.version}</version>
+    </dependency>
+
+    <!-- Тесты (опционально) -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.10.3</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Если parent уже задаёт компилятор, этот блок можно опустить -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <!-- Берём release из родителя через свойство/настройку -->
+          <release>${java.version}</release>
+        </configuration>
+      </plugin>
+
+      <!-- Запуск JavaFX -->
+      <plugin>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>0.0.8</version>
+        <configuration>
+          <mainClass>ru.ui.client.App</mainClass>
+          <launcher>app</launcher>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

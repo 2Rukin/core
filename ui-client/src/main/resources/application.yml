@@ -1,0 +1,17 @@
+ui:
+  kafka:
+    bootstrapServers: "localhost:19092"
+    groupId: "ui-local-dev"
+    schemaRegistryUrl: "http://localhost:8082"
+    autoOffsetReset: "latest"
+    topics:
+      bars: "finam.md.bars.v1"
+      trades: "finam.md.trades.v1"
+      quotes: "finam.md.quotes.v1"
+      orderbook: "finam.md.orderbook.v1"
+      clouds: "finam.features.clouds.v1"
+  symbols:
+    include: ["SBER"]
+  ui:
+    theme: "dark"
+    tnsRows: 1000
