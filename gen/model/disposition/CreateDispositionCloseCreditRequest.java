@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,15 +20,20 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * CreateDispositionCloseCreditRqDTO
+ * CreateDispositionCloseCreditRequest
  */
 
 @JsonTypeName("createDispositionCloseCreditRqDTO")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class CreateDispositionCloseCreditRqDTO {
+/**
+ * DTO CreateDispositionCloseCreditRequest.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class CreateDispositionCloseCreditRequest {
 
   private String number;
 
@@ -53,14 +61,14 @@ public class CreateDispositionCloseCreditRqDTO {
 
   private ContractDispositionType contractDispositionType;
 
-  public CreateDispositionCloseCreditRqDTO() {
+  public CreateDispositionCloseCreditRequest() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public CreateDispositionCloseCreditRqDTO(String number, Long date, UUID contractId, Integer contractVersion, Long operationDate, Long eventOperationDate, ContractDispositionType contractDispositionType) {
+  public CreateDispositionCloseCreditRequest(String number, Long date, UUID contractId, Integer contractVersion, Long operationDate, Long eventOperationDate, ContractDispositionType contractDispositionType) {
     this.number = number;
     this.date = date;
     this.contractId = contractId;
@@ -70,7 +78,7 @@ public class CreateDispositionCloseCreditRqDTO {
     this.contractDispositionType = contractDispositionType;
   }
 
-  public CreateDispositionCloseCreditRqDTO number(String number) {
+  public CreateDispositionCloseCreditRequest number(String number) {
     this.number = number;
     return this;
   }
@@ -90,7 +98,7 @@ public class CreateDispositionCloseCreditRqDTO {
     this.number = number;
   }
 
-  public CreateDispositionCloseCreditRqDTO date(Long date) {
+  public CreateDispositionCloseCreditRequest date(Long date) {
     this.date = date;
     return this;
   }
@@ -110,7 +118,7 @@ public class CreateDispositionCloseCreditRqDTO {
     this.date = date;
   }
 
-  public CreateDispositionCloseCreditRqDTO status(DispositionStatusDTO status) {
+  public CreateDispositionCloseCreditRequest status(DispositionStatusDTO status) {
     this.status = status;
     return this;
   }
@@ -130,7 +138,7 @@ public class CreateDispositionCloseCreditRqDTO {
     this.status = status;
   }
 
-  public CreateDispositionCloseCreditRqDTO kodRequest(String kodRequest) {
+  public CreateDispositionCloseCreditRequest kodRequest(String kodRequest) {
     this.kodRequest = kodRequest;
     return this;
   }
@@ -150,7 +158,7 @@ public class CreateDispositionCloseCreditRqDTO {
     this.kodRequest = kodRequest;
   }
 
-  public CreateDispositionCloseCreditRqDTO contractId(UUID contractId) {
+  public CreateDispositionCloseCreditRequest contractId(UUID contractId) {
     this.contractId = contractId;
     return this;
   }
@@ -170,7 +178,7 @@ public class CreateDispositionCloseCreditRqDTO {
     this.contractId = contractId;
   }
 
-  public CreateDispositionCloseCreditRqDTO contractVersion(Integer contractVersion) {
+  public CreateDispositionCloseCreditRequest contractVersion(Integer contractVersion) {
     this.contractVersion = contractVersion;
     return this;
   }
@@ -190,7 +198,7 @@ public class CreateDispositionCloseCreditRqDTO {
     this.contractVersion = contractVersion;
   }
 
-  public CreateDispositionCloseCreditRqDTO operationDate(Long operationDate) {
+  public CreateDispositionCloseCreditRequest operationDate(Long operationDate) {
     this.operationDate = operationDate;
     return this;
   }
@@ -210,7 +218,7 @@ public class CreateDispositionCloseCreditRqDTO {
     this.operationDate = operationDate;
   }
 
-  public CreateDispositionCloseCreditRqDTO operationBase(String operationBase) {
+  public CreateDispositionCloseCreditRequest operationBase(String operationBase) {
     this.operationBase = operationBase;
     return this;
   }
@@ -230,7 +238,7 @@ public class CreateDispositionCloseCreditRqDTO {
     this.operationBase = operationBase;
   }
 
-  public CreateDispositionCloseCreditRqDTO content(String content) {
+  public CreateDispositionCloseCreditRequest content(String content) {
     this.content = content;
     return this;
   }
@@ -250,7 +258,7 @@ public class CreateDispositionCloseCreditRqDTO {
     this.content = content;
   }
 
-  public CreateDispositionCloseCreditRqDTO comment(String comment) {
+  public CreateDispositionCloseCreditRequest comment(String comment) {
     this.comment = comment;
     return this;
   }
@@ -270,7 +278,7 @@ public class CreateDispositionCloseCreditRqDTO {
     this.comment = comment;
   }
 
-  public CreateDispositionCloseCreditRqDTO eventOperationDate(Long eventOperationDate) {
+  public CreateDispositionCloseCreditRequest eventOperationDate(Long eventOperationDate) {
     this.eventOperationDate = eventOperationDate;
     return this;
   }
@@ -290,7 +298,7 @@ public class CreateDispositionCloseCreditRqDTO {
     this.eventOperationDate = eventOperationDate;
   }
 
-  public CreateDispositionCloseCreditRqDTO additionalComment(String additionalComment) {
+  public CreateDispositionCloseCreditRequest additionalComment(String additionalComment) {
     this.additionalComment = additionalComment;
     return this;
   }
@@ -310,7 +318,7 @@ public class CreateDispositionCloseCreditRqDTO {
     this.additionalComment = additionalComment;
   }
 
-  public CreateDispositionCloseCreditRqDTO contractDispositionType(ContractDispositionType contractDispositionType) {
+  public CreateDispositionCloseCreditRequest contractDispositionType(ContractDispositionType contractDispositionType) {
     this.contractDispositionType = contractDispositionType;
     return this;
   }
@@ -338,7 +346,7 @@ public class CreateDispositionCloseCreditRqDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateDispositionCloseCreditRqDTO createDispositionCloseCreditRqDTO = (CreateDispositionCloseCreditRqDTO) o;
+    CreateDispositionCloseCreditRequest createDispositionCloseCreditRqDTO = (CreateDispositionCloseCreditRequest) o;
     return Objects.equals(this.number, createDispositionCloseCreditRqDTO.number) &&
         Objects.equals(this.date, createDispositionCloseCreditRqDTO.date) &&
         Objects.equals(this.status, createDispositionCloseCreditRqDTO.status) &&
@@ -362,7 +370,7 @@ public class CreateDispositionCloseCreditRqDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateDispositionCloseCreditRqDTO {\n");
+    sb.append("class CreateDispositionCloseCreditRequest {\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

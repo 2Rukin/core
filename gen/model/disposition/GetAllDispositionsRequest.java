@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,14 +17,19 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * GetAllDispositionsRqDTO
+ * GetAllDispositionsRequest
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class GetAllDispositionsRqDTO {
+/**
+ * DTO GetAllDispositionsRequest.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class GetAllDispositionsRequest {
 
   private Integer pageSize = 20;
 
@@ -31,19 +39,19 @@ public class GetAllDispositionsRqDTO {
 
   private GetAllDispositionsRqFilteringDTO filtering;
 
-  public GetAllDispositionsRqDTO() {
+  public GetAllDispositionsRequest() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public GetAllDispositionsRqDTO(Integer pageSize, GetAllDispositionsRqSortingDTO sorting) {
+  public GetAllDispositionsRequest(Integer pageSize, GetAllDispositionsRqSortingDTO sorting) {
     this.pageSize = pageSize;
     this.sorting = sorting;
   }
 
-  public GetAllDispositionsRqDTO pageSize(Integer pageSize) {
+  public GetAllDispositionsRequest pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -63,7 +71,7 @@ public class GetAllDispositionsRqDTO {
     this.pageSize = pageSize;
   }
 
-  public GetAllDispositionsRqDTO pageNumber(Integer pageNumber) {
+  public GetAllDispositionsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -83,7 +91,7 @@ public class GetAllDispositionsRqDTO {
     this.pageNumber = pageNumber;
   }
 
-  public GetAllDispositionsRqDTO sorting(GetAllDispositionsRqSortingDTO sorting) {
+  public GetAllDispositionsRequest sorting(GetAllDispositionsRqSortingDTO sorting) {
     this.sorting = sorting;
     return this;
   }
@@ -103,7 +111,7 @@ public class GetAllDispositionsRqDTO {
     this.sorting = sorting;
   }
 
-  public GetAllDispositionsRqDTO filtering(GetAllDispositionsRqFilteringDTO filtering) {
+  public GetAllDispositionsRequest filtering(GetAllDispositionsRqFilteringDTO filtering) {
     this.filtering = filtering;
     return this;
   }
@@ -131,7 +139,7 @@ public class GetAllDispositionsRqDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetAllDispositionsRqDTO getAllDispositionsRqDTO = (GetAllDispositionsRqDTO) o;
+    GetAllDispositionsRequest getAllDispositionsRqDTO = (GetAllDispositionsRequest) o;
     return Objects.equals(this.pageSize, getAllDispositionsRqDTO.pageSize) &&
         Objects.equals(this.pageNumber, getAllDispositionsRqDTO.pageNumber) &&
         Objects.equals(this.sorting, getAllDispositionsRqDTO.sorting) &&
@@ -146,7 +154,7 @@ public class GetAllDispositionsRqDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetAllDispositionsRqDTO {\n");
+    sb.append("class GetAllDispositionsRequest {\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    sorting: ").append(toIndentedString(sorting)).append("\n");

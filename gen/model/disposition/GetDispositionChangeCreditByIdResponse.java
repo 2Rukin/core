@@ -1,10 +1,17 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.UUID;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.DispositionStatusDTO;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.DispositionTypeDTO;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
@@ -13,30 +20,40 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * GetDispositionNewContractByIdRsDTO
+ * GetDispositionChangeCreditByIdResponse
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class GetDispositionNewContractByIdRsDTO {
+@JsonTypeName("getDispositionChangeCreditByIdRsDTO")
+/**
+ * DTO GetDispositionChangeCreditByIdResponse.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class GetDispositionChangeCreditByIdResponse {
 
   private UUID id;
-
-  private String type;
 
   private String number;
 
   private Long date;
 
-  private String status;
+  private DispositionTypeDTO type;
+
+  private DispositionStatusDTO status;
 
   private String kodRequest;
 
   private UUID contractId;
 
   private Integer contractVersion;
+
+  private Long operationDate;
+
+  private String operationType;
 
   private UUID executorId;
 
@@ -45,10 +62,6 @@ public class GetDispositionNewContractByIdRsDTO {
   private UUID authorizedId;
 
   private String authorizedTitle;
-
-  private String reason;
-
-  private Long operationDate;
 
   private String operationBase;
 
@@ -60,10 +73,6 @@ public class GetDispositionNewContractByIdRsDTO {
 
   private UUID lastUpdatedBy;
 
-  private String content;
-
-  private String comment;
-
   private String contractClientInn;
 
   private String contractClientName;
@@ -74,13 +83,40 @@ public class GetDispositionNewContractByIdRsDTO {
 
   private String contractUID;
 
-  private String operationKind;
+  private String contractType;
+
+  private String content;
+
+  private String comment;
 
   private Boolean verificationPassed;
 
   private String purposeAfina;
 
-  public GetDispositionNewContractByIdRsDTO id(UUID id) {
+  private Long eventOperationDate;
+
+  private String additionalComment;
+
+  public GetDispositionChangeCreditByIdResponse() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public GetDispositionChangeCreditByIdResponse(UUID id, String number, Long date, DispositionTypeDTO type, DispositionStatusDTO status, UUID contractId, Integer contractVersion, String operationType, Long eventOperationDate) {
+    this.id = id;
+    this.number = number;
+    this.date = date;
+    this.type = type;
+    this.status = status;
+    this.contractId = contractId;
+    this.contractVersion = contractVersion;
+    this.operationType = operationType;
+    this.eventOperationDate = eventOperationDate;
+  }
+
+  public GetDispositionChangeCreditByIdResponse id(UUID id) {
     this.id = id;
     return this;
   }
@@ -89,8 +125,8 @@ public class GetDispositionNewContractByIdRsDTO {
    * Get id
    * @return id
   */
-  @Valid 
-  @Schema(name = "id", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @NotNull @Valid 
+  @Schema(name = "id", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public UUID getId() {
     return id;
@@ -100,27 +136,7 @@ public class GetDispositionNewContractByIdRsDTO {
     this.id = id;
   }
 
-  public GetDispositionNewContractByIdRsDTO type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Get type
-   * @return type
-  */
-  
-  @Schema(name = "type", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("type")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public GetDispositionNewContractByIdRsDTO number(String number) {
+  public GetDispositionChangeCreditByIdResponse number(String number) {
     this.number = number;
     return this;
   }
@@ -129,8 +145,8 @@ public class GetDispositionNewContractByIdRsDTO {
    * Get number
    * @return number
   */
-  
-  @Schema(name = "number", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @NotNull 
+  @Schema(name = "number", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("number")
   public String getNumber() {
     return number;
@@ -140,7 +156,7 @@ public class GetDispositionNewContractByIdRsDTO {
     this.number = number;
   }
 
-  public GetDispositionNewContractByIdRsDTO date(Long date) {
+  public GetDispositionChangeCreditByIdResponse date(Long date) {
     this.date = date;
     return this;
   }
@@ -149,8 +165,8 @@ public class GetDispositionNewContractByIdRsDTO {
    * Get date
    * @return date
   */
-  
-  @Schema(name = "date", example = "1557057600", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @NotNull 
+  @Schema(name = "date", example = "1557057600", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("date")
   public Long getDate() {
     return date;
@@ -160,7 +176,27 @@ public class GetDispositionNewContractByIdRsDTO {
     this.date = date;
   }
 
-  public GetDispositionNewContractByIdRsDTO status(String status) {
+  public GetDispositionChangeCreditByIdResponse type(DispositionTypeDTO type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+  */
+  @NotNull @Valid 
+  @Schema(name = "type", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("type")
+  public DispositionTypeDTO getType() {
+    return type;
+  }
+
+  public void setType(DispositionTypeDTO type) {
+    this.type = type;
+  }
+
+  public GetDispositionChangeCreditByIdResponse status(DispositionStatusDTO status) {
     this.status = status;
     return this;
   }
@@ -169,18 +205,18 @@ public class GetDispositionNewContractByIdRsDTO {
    * Get status
    * @return status
   */
-  
-  @Schema(name = "status", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @NotNull @Valid 
+  @Schema(name = "status", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("status")
-  public String getStatus() {
+  public DispositionStatusDTO getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(DispositionStatusDTO status) {
     this.status = status;
   }
 
-  public GetDispositionNewContractByIdRsDTO kodRequest(String kodRequest) {
+  public GetDispositionChangeCreditByIdResponse kodRequest(String kodRequest) {
     this.kodRequest = kodRequest;
     return this;
   }
@@ -200,7 +236,7 @@ public class GetDispositionNewContractByIdRsDTO {
     this.kodRequest = kodRequest;
   }
 
-  public GetDispositionNewContractByIdRsDTO contractId(UUID contractId) {
+  public GetDispositionChangeCreditByIdResponse contractId(UUID contractId) {
     this.contractId = contractId;
     return this;
   }
@@ -209,8 +245,8 @@ public class GetDispositionNewContractByIdRsDTO {
    * Get contractId
    * @return contractId
   */
-  @Valid 
-  @Schema(name = "contractId", example = "566122ae-8862-46e2-b554-e0db518f6dd4", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @NotNull @Valid 
+  @Schema(name = "contractId", example = "566122ae-8862-46e2-b554-e0db518f6dd4", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("contractId")
   public UUID getContractId() {
     return contractId;
@@ -220,7 +256,7 @@ public class GetDispositionNewContractByIdRsDTO {
     this.contractId = contractId;
   }
 
-  public GetDispositionNewContractByIdRsDTO contractVersion(Integer contractVersion) {
+  public GetDispositionChangeCreditByIdResponse contractVersion(Integer contractVersion) {
     this.contractVersion = contractVersion;
     return this;
   }
@@ -229,8 +265,8 @@ public class GetDispositionNewContractByIdRsDTO {
    * Get contractVersion
    * @return contractVersion
   */
-  
-  @Schema(name = "contractVersion", example = "0", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @NotNull 
+  @Schema(name = "contractVersion", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("contractVersion")
   public Integer getContractVersion() {
     return contractVersion;
@@ -240,107 +276,7 @@ public class GetDispositionNewContractByIdRsDTO {
     this.contractVersion = contractVersion;
   }
 
-  public GetDispositionNewContractByIdRsDTO executorId(UUID executorId) {
-    this.executorId = executorId;
-    return this;
-  }
-
-  /**
-   * Get executorId
-   * @return executorId
-  */
-  @Valid 
-  @Schema(name = "executorId", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("executorId")
-  public UUID getExecutorId() {
-    return executorId;
-  }
-
-  public void setExecutorId(UUID executorId) {
-    this.executorId = executorId;
-  }
-
-  public GetDispositionNewContractByIdRsDTO executorTitle(String executorTitle) {
-    this.executorTitle = executorTitle;
-    return this;
-  }
-
-  /**
-   * Get executorTitle
-   * @return executorTitle
-  */
-  
-  @Schema(name = "executorTitle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("executorTitle")
-  public String getExecutorTitle() {
-    return executorTitle;
-  }
-
-  public void setExecutorTitle(String executorTitle) {
-    this.executorTitle = executorTitle;
-  }
-
-  public GetDispositionNewContractByIdRsDTO authorizedId(UUID authorizedId) {
-    this.authorizedId = authorizedId;
-    return this;
-  }
-
-  /**
-   * Get authorizedId
-   * @return authorizedId
-  */
-  @Valid 
-  @Schema(name = "authorizedId", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("authorizedId")
-  public UUID getAuthorizedId() {
-    return authorizedId;
-  }
-
-  public void setAuthorizedId(UUID authorizedId) {
-    this.authorizedId = authorizedId;
-  }
-
-  public GetDispositionNewContractByIdRsDTO authorizedTitle(String authorizedTitle) {
-    this.authorizedTitle = authorizedTitle;
-    return this;
-  }
-
-  /**
-   * Get authorizedTitle
-   * @return authorizedTitle
-  */
-  
-  @Schema(name = "authorizedTitle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("authorizedTitle")
-  public String getAuthorizedTitle() {
-    return authorizedTitle;
-  }
-
-  public void setAuthorizedTitle(String authorizedTitle) {
-    this.authorizedTitle = authorizedTitle;
-  }
-
-  public GetDispositionNewContractByIdRsDTO reason(String reason) {
-    this.reason = reason;
-    return this;
-  }
-
-  /**
-   * Get reason
-   * @return reason
-  */
-  
-  @Schema(name = "reason", example = "Заключение нового кредитного договора", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("reason")
-  public String getReason() {
-    return reason;
-  }
-
-  public void setReason(String reason) {
-    this.reason = reason;
-  }
-
-  public GetDispositionNewContractByIdRsDTO operationDate(Long operationDate) {
+  public GetDispositionChangeCreditByIdResponse operationDate(Long operationDate) {
     this.operationDate = operationDate;
     return this;
   }
@@ -360,7 +296,107 @@ public class GetDispositionNewContractByIdRsDTO {
     this.operationDate = operationDate;
   }
 
-  public GetDispositionNewContractByIdRsDTO operationBase(String operationBase) {
+  public GetDispositionChangeCreditByIdResponse operationType(String operationType) {
+    this.operationType = operationType;
+    return this;
+  }
+
+  /**
+   * Get operationType
+   * @return operationType
+  */
+  @NotNull 
+  @Schema(name = "operationType", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("operationType")
+  public String getOperationType() {
+    return operationType;
+  }
+
+  public void setOperationType(String operationType) {
+    this.operationType = operationType;
+  }
+
+  public GetDispositionChangeCreditByIdResponse executorId(UUID executorId) {
+    this.executorId = executorId;
+    return this;
+  }
+
+  /**
+   * Get executorId
+   * @return executorId
+  */
+  @Valid 
+  @Schema(name = "executorId", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executorId")
+  public UUID getExecutorId() {
+    return executorId;
+  }
+
+  public void setExecutorId(UUID executorId) {
+    this.executorId = executorId;
+  }
+
+  public GetDispositionChangeCreditByIdResponse executorTitle(String executorTitle) {
+    this.executorTitle = executorTitle;
+    return this;
+  }
+
+  /**
+   * Get executorTitle
+   * @return executorTitle
+  */
+  
+  @Schema(name = "executorTitle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executorTitle")
+  public String getExecutorTitle() {
+    return executorTitle;
+  }
+
+  public void setExecutorTitle(String executorTitle) {
+    this.executorTitle = executorTitle;
+  }
+
+  public GetDispositionChangeCreditByIdResponse authorizedId(UUID authorizedId) {
+    this.authorizedId = authorizedId;
+    return this;
+  }
+
+  /**
+   * Get authorizedId
+   * @return authorizedId
+  */
+  @Valid 
+  @Schema(name = "authorizedId", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("authorizedId")
+  public UUID getAuthorizedId() {
+    return authorizedId;
+  }
+
+  public void setAuthorizedId(UUID authorizedId) {
+    this.authorizedId = authorizedId;
+  }
+
+  public GetDispositionChangeCreditByIdResponse authorizedTitle(String authorizedTitle) {
+    this.authorizedTitle = authorizedTitle;
+    return this;
+  }
+
+  /**
+   * Get authorizedTitle
+   * @return authorizedTitle
+  */
+  
+  @Schema(name = "authorizedTitle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("authorizedTitle")
+  public String getAuthorizedTitle() {
+    return authorizedTitle;
+  }
+
+  public void setAuthorizedTitle(String authorizedTitle) {
+    this.authorizedTitle = authorizedTitle;
+  }
+
+  public GetDispositionChangeCreditByIdResponse operationBase(String operationBase) {
     this.operationBase = operationBase;
     return this;
   }
@@ -380,7 +416,7 @@ public class GetDispositionNewContractByIdRsDTO {
     this.operationBase = operationBase;
   }
 
-  public GetDispositionNewContractByIdRsDTO createdTimestamp(Long createdTimestamp) {
+  public GetDispositionChangeCreditByIdResponse createdTimestamp(Long createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
   }
@@ -400,7 +436,7 @@ public class GetDispositionNewContractByIdRsDTO {
     this.createdTimestamp = createdTimestamp;
   }
 
-  public GetDispositionNewContractByIdRsDTO createdBy(UUID createdBy) {
+  public GetDispositionChangeCreditByIdResponse createdBy(UUID createdBy) {
     this.createdBy = createdBy;
     return this;
   }
@@ -420,7 +456,7 @@ public class GetDispositionNewContractByIdRsDTO {
     this.createdBy = createdBy;
   }
 
-  public GetDispositionNewContractByIdRsDTO lastUpdatedTimestamp(Long lastUpdatedTimestamp) {
+  public GetDispositionChangeCreditByIdResponse lastUpdatedTimestamp(Long lastUpdatedTimestamp) {
     this.lastUpdatedTimestamp = lastUpdatedTimestamp;
     return this;
   }
@@ -440,7 +476,7 @@ public class GetDispositionNewContractByIdRsDTO {
     this.lastUpdatedTimestamp = lastUpdatedTimestamp;
   }
 
-  public GetDispositionNewContractByIdRsDTO lastUpdatedBy(UUID lastUpdatedBy) {
+  public GetDispositionChangeCreditByIdResponse lastUpdatedBy(UUID lastUpdatedBy) {
     this.lastUpdatedBy = lastUpdatedBy;
     return this;
   }
@@ -460,47 +496,7 @@ public class GetDispositionNewContractByIdRsDTO {
     this.lastUpdatedBy = lastUpdatedBy;
   }
 
-  public GetDispositionNewContractByIdRsDTO content(String content) {
-    this.content = content;
-    return this;
-  }
-
-  /**
-   * Get content
-   * @return content
-  */
-  
-  @Schema(name = "content", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("content")
-  public String getContent() {
-    return content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public GetDispositionNewContractByIdRsDTO comment(String comment) {
-    this.comment = comment;
-    return this;
-  }
-
-  /**
-   * Get comment
-   * @return comment
-  */
-  
-  @Schema(name = "comment", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("comment")
-  public String getComment() {
-    return comment;
-  }
-
-  public void setComment(String comment) {
-    this.comment = comment;
-  }
-
-  public GetDispositionNewContractByIdRsDTO contractClientInn(String contractClientInn) {
+  public GetDispositionChangeCreditByIdResponse contractClientInn(String contractClientInn) {
     this.contractClientInn = contractClientInn;
     return this;
   }
@@ -520,7 +516,7 @@ public class GetDispositionNewContractByIdRsDTO {
     this.contractClientInn = contractClientInn;
   }
 
-  public GetDispositionNewContractByIdRsDTO contractClientName(String contractClientName) {
+  public GetDispositionChangeCreditByIdResponse contractClientName(String contractClientName) {
     this.contractClientName = contractClientName;
     return this;
   }
@@ -540,7 +536,7 @@ public class GetDispositionNewContractByIdRsDTO {
     this.contractClientName = contractClientName;
   }
 
-  public GetDispositionNewContractByIdRsDTO contractNumber(String contractNumber) {
+  public GetDispositionChangeCreditByIdResponse contractNumber(String contractNumber) {
     this.contractNumber = contractNumber;
     return this;
   }
@@ -560,7 +556,7 @@ public class GetDispositionNewContractByIdRsDTO {
     this.contractNumber = contractNumber;
   }
 
-  public GetDispositionNewContractByIdRsDTO contractDate(Long contractDate) {
+  public GetDispositionChangeCreditByIdResponse contractDate(Long contractDate) {
     this.contractDate = contractDate;
     return this;
   }
@@ -580,7 +576,7 @@ public class GetDispositionNewContractByIdRsDTO {
     this.contractDate = contractDate;
   }
 
-  public GetDispositionNewContractByIdRsDTO contractUID(String contractUID) {
+  public GetDispositionChangeCreditByIdResponse contractUID(String contractUID) {
     this.contractUID = contractUID;
     return this;
   }
@@ -600,27 +596,67 @@ public class GetDispositionNewContractByIdRsDTO {
     this.contractUID = contractUID;
   }
 
-  public GetDispositionNewContractByIdRsDTO operationKind(String operationKind) {
-    this.operationKind = operationKind;
+  public GetDispositionChangeCreditByIdResponse contractType(String contractType) {
+    this.contractType = contractType;
     return this;
   }
 
   /**
-   * Get operationKind
-   * @return operationKind
+   * Get contractType
+   * @return contractType
   */
   
-  @Schema(name = "operationKind", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("operationKind")
-  public String getOperationKind() {
-    return operationKind;
+  @Schema(name = "contractType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("contractType")
+  public String getContractType() {
+    return contractType;
   }
 
-  public void setOperationKind(String operationKind) {
-    this.operationKind = operationKind;
+  public void setContractType(String contractType) {
+    this.contractType = contractType;
   }
 
-  public GetDispositionNewContractByIdRsDTO verificationPassed(Boolean verificationPassed) {
+  public GetDispositionChangeCreditByIdResponse content(String content) {
+    this.content = content;
+    return this;
+  }
+
+  /**
+   * Get content
+   * @return content
+  */
+  
+  @Schema(name = "content", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("content")
+  public String getContent() {
+    return content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public GetDispositionChangeCreditByIdResponse comment(String comment) {
+    this.comment = comment;
+    return this;
+  }
+
+  /**
+   * Get comment
+   * @return comment
+  */
+  
+  @Schema(name = "comment", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("comment")
+  public String getComment() {
+    return comment;
+  }
+
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
+
+  public GetDispositionChangeCreditByIdResponse verificationPassed(Boolean verificationPassed) {
     this.verificationPassed = verificationPassed;
     return this;
   }
@@ -640,7 +676,7 @@ public class GetDispositionNewContractByIdRsDTO {
     this.verificationPassed = verificationPassed;
   }
 
-  public GetDispositionNewContractByIdRsDTO purposeAfina(String purposeAfina) {
+  public GetDispositionChangeCreditByIdResponse purposeAfina(String purposeAfina) {
     this.purposeAfina = purposeAfina;
     return this;
   }
@@ -660,6 +696,46 @@ public class GetDispositionNewContractByIdRsDTO {
     this.purposeAfina = purposeAfina;
   }
 
+  public GetDispositionChangeCreditByIdResponse eventOperationDate(Long eventOperationDate) {
+    this.eventOperationDate = eventOperationDate;
+    return this;
+  }
+
+  /**
+   * Get eventOperationDate
+   * @return eventOperationDate
+  */
+  @NotNull 
+  @Schema(name = "eventOperationDate", example = "1557057600", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("eventOperationDate")
+  public Long getEventOperationDate() {
+    return eventOperationDate;
+  }
+
+  public void setEventOperationDate(Long eventOperationDate) {
+    this.eventOperationDate = eventOperationDate;
+  }
+
+  public GetDispositionChangeCreditByIdResponse additionalComment(String additionalComment) {
+    this.additionalComment = additionalComment;
+    return this;
+  }
+
+  /**
+   * Get additionalComment
+   * @return additionalComment
+  */
+  
+  @Schema(name = "additionalComment", example = "Требуется пересчитать начисленные проценты по договору", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("additionalComment")
+  public String getAdditionalComment() {
+    return additionalComment;
+  }
+
+  public void setAdditionalComment(String additionalComment) {
+    this.additionalComment = additionalComment;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -668,76 +744,80 @@ public class GetDispositionNewContractByIdRsDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetDispositionNewContractByIdRsDTO getDispositionNewContractByIdRsDTO = (GetDispositionNewContractByIdRsDTO) o;
-    return Objects.equals(this.id, getDispositionNewContractByIdRsDTO.id) &&
-        Objects.equals(this.type, getDispositionNewContractByIdRsDTO.type) &&
-        Objects.equals(this.number, getDispositionNewContractByIdRsDTO.number) &&
-        Objects.equals(this.date, getDispositionNewContractByIdRsDTO.date) &&
-        Objects.equals(this.status, getDispositionNewContractByIdRsDTO.status) &&
-        Objects.equals(this.kodRequest, getDispositionNewContractByIdRsDTO.kodRequest) &&
-        Objects.equals(this.contractId, getDispositionNewContractByIdRsDTO.contractId) &&
-        Objects.equals(this.contractVersion, getDispositionNewContractByIdRsDTO.contractVersion) &&
-        Objects.equals(this.executorId, getDispositionNewContractByIdRsDTO.executorId) &&
-        Objects.equals(this.executorTitle, getDispositionNewContractByIdRsDTO.executorTitle) &&
-        Objects.equals(this.authorizedId, getDispositionNewContractByIdRsDTO.authorizedId) &&
-        Objects.equals(this.authorizedTitle, getDispositionNewContractByIdRsDTO.authorizedTitle) &&
-        Objects.equals(this.reason, getDispositionNewContractByIdRsDTO.reason) &&
-        Objects.equals(this.operationDate, getDispositionNewContractByIdRsDTO.operationDate) &&
-        Objects.equals(this.operationBase, getDispositionNewContractByIdRsDTO.operationBase) &&
-        Objects.equals(this.createdTimestamp, getDispositionNewContractByIdRsDTO.createdTimestamp) &&
-        Objects.equals(this.createdBy, getDispositionNewContractByIdRsDTO.createdBy) &&
-        Objects.equals(this.lastUpdatedTimestamp, getDispositionNewContractByIdRsDTO.lastUpdatedTimestamp) &&
-        Objects.equals(this.lastUpdatedBy, getDispositionNewContractByIdRsDTO.lastUpdatedBy) &&
-        Objects.equals(this.content, getDispositionNewContractByIdRsDTO.content) &&
-        Objects.equals(this.comment, getDispositionNewContractByIdRsDTO.comment) &&
-        Objects.equals(this.contractClientInn, getDispositionNewContractByIdRsDTO.contractClientInn) &&
-        Objects.equals(this.contractClientName, getDispositionNewContractByIdRsDTO.contractClientName) &&
-        Objects.equals(this.contractNumber, getDispositionNewContractByIdRsDTO.contractNumber) &&
-        Objects.equals(this.contractDate, getDispositionNewContractByIdRsDTO.contractDate) &&
-        Objects.equals(this.contractUID, getDispositionNewContractByIdRsDTO.contractUID) &&
-        Objects.equals(this.operationKind, getDispositionNewContractByIdRsDTO.operationKind) &&
-        Objects.equals(this.verificationPassed, getDispositionNewContractByIdRsDTO.verificationPassed) &&
-        Objects.equals(this.purposeAfina, getDispositionNewContractByIdRsDTO.purposeAfina);
+    GetDispositionChangeCreditByIdResponse getDispositionChangeCreditByIdRsDTO = (GetDispositionChangeCreditByIdResponse) o;
+    return Objects.equals(this.id, getDispositionChangeCreditByIdRsDTO.id) &&
+        Objects.equals(this.number, getDispositionChangeCreditByIdRsDTO.number) &&
+        Objects.equals(this.date, getDispositionChangeCreditByIdRsDTO.date) &&
+        Objects.equals(this.type, getDispositionChangeCreditByIdRsDTO.type) &&
+        Objects.equals(this.status, getDispositionChangeCreditByIdRsDTO.status) &&
+        Objects.equals(this.kodRequest, getDispositionChangeCreditByIdRsDTO.kodRequest) &&
+        Objects.equals(this.contractId, getDispositionChangeCreditByIdRsDTO.contractId) &&
+        Objects.equals(this.contractVersion, getDispositionChangeCreditByIdRsDTO.contractVersion) &&
+        Objects.equals(this.operationDate, getDispositionChangeCreditByIdRsDTO.operationDate) &&
+        Objects.equals(this.operationType, getDispositionChangeCreditByIdRsDTO.operationType) &&
+        Objects.equals(this.executorId, getDispositionChangeCreditByIdRsDTO.executorId) &&
+        Objects.equals(this.executorTitle, getDispositionChangeCreditByIdRsDTO.executorTitle) &&
+        Objects.equals(this.authorizedId, getDispositionChangeCreditByIdRsDTO.authorizedId) &&
+        Objects.equals(this.authorizedTitle, getDispositionChangeCreditByIdRsDTO.authorizedTitle) &&
+        Objects.equals(this.operationBase, getDispositionChangeCreditByIdRsDTO.operationBase) &&
+        Objects.equals(this.createdTimestamp, getDispositionChangeCreditByIdRsDTO.createdTimestamp) &&
+        Objects.equals(this.createdBy, getDispositionChangeCreditByIdRsDTO.createdBy) &&
+        Objects.equals(this.lastUpdatedTimestamp, getDispositionChangeCreditByIdRsDTO.lastUpdatedTimestamp) &&
+        Objects.equals(this.lastUpdatedBy, getDispositionChangeCreditByIdRsDTO.lastUpdatedBy) &&
+        Objects.equals(this.contractClientInn, getDispositionChangeCreditByIdRsDTO.contractClientInn) &&
+        Objects.equals(this.contractClientName, getDispositionChangeCreditByIdRsDTO.contractClientName) &&
+        Objects.equals(this.contractNumber, getDispositionChangeCreditByIdRsDTO.contractNumber) &&
+        Objects.equals(this.contractDate, getDispositionChangeCreditByIdRsDTO.contractDate) &&
+        Objects.equals(this.contractUID, getDispositionChangeCreditByIdRsDTO.contractUID) &&
+        Objects.equals(this.contractType, getDispositionChangeCreditByIdRsDTO.contractType) &&
+        Objects.equals(this.content, getDispositionChangeCreditByIdRsDTO.content) &&
+        Objects.equals(this.comment, getDispositionChangeCreditByIdRsDTO.comment) &&
+        Objects.equals(this.verificationPassed, getDispositionChangeCreditByIdRsDTO.verificationPassed) &&
+        Objects.equals(this.purposeAfina, getDispositionChangeCreditByIdRsDTO.purposeAfina) &&
+        Objects.equals(this.eventOperationDate, getDispositionChangeCreditByIdRsDTO.eventOperationDate) &&
+        Objects.equals(this.additionalComment, getDispositionChangeCreditByIdRsDTO.additionalComment);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, number, date, status, kodRequest, contractId, contractVersion, executorId, executorTitle, authorizedId, authorizedTitle, reason, operationDate, operationBase, createdTimestamp, createdBy, lastUpdatedTimestamp, lastUpdatedBy, content, comment, contractClientInn, contractClientName, contractNumber, contractDate, contractUID, operationKind, verificationPassed, purposeAfina);
+    return Objects.hash(id, number, date, type, status, kodRequest, contractId, contractVersion, operationDate, operationType, executorId, executorTitle, authorizedId, authorizedTitle, operationBase, createdTimestamp, createdBy, lastUpdatedTimestamp, lastUpdatedBy, contractClientInn, contractClientName, contractNumber, contractDate, contractUID, contractType, content, comment, verificationPassed, purposeAfina, eventOperationDate, additionalComment);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetDispositionNewContractByIdRsDTO {\n");
+    sb.append("class GetDispositionChangeCreditByIdResponse {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    kodRequest: ").append(toIndentedString(kodRequest)).append("\n");
     sb.append("    contractId: ").append(toIndentedString(contractId)).append("\n");
     sb.append("    contractVersion: ").append(toIndentedString(contractVersion)).append("\n");
+    sb.append("    operationDate: ").append(toIndentedString(operationDate)).append("\n");
+    sb.append("    operationType: ").append(toIndentedString(operationType)).append("\n");
     sb.append("    executorId: ").append(toIndentedString(executorId)).append("\n");
     sb.append("    executorTitle: ").append(toIndentedString(executorTitle)).append("\n");
     sb.append("    authorizedId: ").append(toIndentedString(authorizedId)).append("\n");
     sb.append("    authorizedTitle: ").append(toIndentedString(authorizedTitle)).append("\n");
-    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-    sb.append("    operationDate: ").append(toIndentedString(operationDate)).append("\n");
     sb.append("    operationBase: ").append(toIndentedString(operationBase)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    lastUpdatedTimestamp: ").append(toIndentedString(lastUpdatedTimestamp)).append("\n");
     sb.append("    lastUpdatedBy: ").append(toIndentedString(lastUpdatedBy)).append("\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    contractClientInn: ").append(toIndentedString(contractClientInn)).append("\n");
     sb.append("    contractClientName: ").append(toIndentedString(contractClientName)).append("\n");
     sb.append("    contractNumber: ").append(toIndentedString(contractNumber)).append("\n");
     sb.append("    contractDate: ").append(toIndentedString(contractDate)).append("\n");
     sb.append("    contractUID: ").append(toIndentedString(contractUID)).append("\n");
-    sb.append("    operationKind: ").append(toIndentedString(operationKind)).append("\n");
+    sb.append("    contractType: ").append(toIndentedString(contractType)).append("\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    verificationPassed: ").append(toIndentedString(verificationPassed)).append("\n");
     sb.append("    purposeAfina: ").append(toIndentedString(purposeAfina)).append("\n");
+    sb.append("    eventOperationDate: ").append(toIndentedString(eventOperationDate)).append("\n");
+    sb.append("    additionalComment: ").append(toIndentedString(additionalComment)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.tariff;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,7 +21,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
  * Получение списка тарифов в DTO
@@ -26,15 +28,21 @@ import jakarta.annotation.Generated;
 
 @Schema(name = "tariffListRsDTO", description = "Получение списка тарифов в DTO")
 @JsonTypeName("tariffListRsDTO")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.237390300+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class TariffListRsDTO {
+/**
+ * DTO TariffListResponse.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class TariffListResponse {
 
   private TariffListSorting sorting;
 
   @Valid
   private List<@Valid TariffListItem> content = new ArrayList<>();
 
-  public TariffListRsDTO sorting(TariffListSorting sorting) {
+  public TariffListResponse sorting(TariffListSorting sorting) {
     this.sorting = sorting;
     return this;
   }
@@ -54,12 +62,12 @@ public class TariffListRsDTO {
     this.sorting = sorting;
   }
 
-  public TariffListRsDTO content(List<@Valid TariffListItem> content) {
+  public TariffListResponse content(List<@Valid TariffListItem> content) {
     this.content = content;
     return this;
   }
 
-  public TariffListRsDTO addContentItem(TariffListItem contentItem) {
+  public TariffListResponse addContentItem(TariffListItem contentItem) {
     if (this.content == null) {
       this.content = new ArrayList<>();
     }
@@ -90,7 +98,7 @@ public class TariffListRsDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TariffListRsDTO tariffListRsDTO = (TariffListRsDTO) o;
+    TariffListResponse tariffListRsDTO = (TariffListResponse) o;
     return Objects.equals(this.sorting, tariffListRsDTO.sorting) &&
         Objects.equals(this.content, tariffListRsDTO.content);
   }
@@ -103,7 +111,7 @@ public class TariffListRsDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TariffListRsDTO {\n");
+    sb.append("class TariffListResponse {\n");
     sb.append("    sorting: ").append(toIndentedString(sorting)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("}");

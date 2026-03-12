@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.tariff;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,7 +17,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
  * Получение тарифа в DTO
@@ -22,12 +24,18 @@ import jakarta.annotation.Generated;
 
 @Schema(name = "tariffRsDTO", description = "Получение тарифа в DTO")
 @JsonTypeName("tariffRsDTO")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.237390300+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class TariffRsDTO {
+/**
+ * DTO TariffResponse.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class TariffResponse {
 
   private TariffItem content;
 
-  public TariffRsDTO content(TariffItem content) {
+  public TariffResponse content(TariffItem content) {
     this.content = content;
     return this;
   }
@@ -55,7 +63,7 @@ public class TariffRsDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TariffRsDTO tariffRsDTO = (TariffRsDTO) o;
+    TariffResponse tariffRsDTO = (TariffResponse) o;
     return Objects.equals(this.content, tariffRsDTO.content);
   }
 
@@ -67,7 +75,7 @@ public class TariffRsDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TariffRsDTO {\n");
+    sb.append("class TariffResponse {\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("}");
     return sb.toString();

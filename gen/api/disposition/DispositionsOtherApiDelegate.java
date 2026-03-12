@@ -1,8 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.api.disposition;
 
 import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.CreateDispositionOtherRequest;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditDispositionOtherRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorRsDTO;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditDispositionOtherRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorResponse;
 import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetDispositionOtherByUUIdResponse;
 import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ShortDispositionInfo;
 import java.util.UUID;
@@ -91,7 +91,7 @@ public interface DispositionsOtherApiDelegate {
      * @see DispositionsOtherApi#editDispositionOther
      */
     default ResponseEntity<Void> editDispositionOther(UUID id,
-        EditDispositionOtherRqDTO editDispositionOtherRqDTO) {
+        EditDispositionOtherRequest editDispositionOtherRqDTO) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {

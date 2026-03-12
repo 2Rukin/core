@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,14 +19,19 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
  * Параметры для фильтрации (столбец, значение фильтра)
  */
 
 @Schema(name = "GetAllDispositionsRqFilteringDTO", description = "Параметры для фильтрации (столбец, значение фильтра)")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
+/**
+ * DTO GetAllDispositionsRqFilteringDTO.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
 public class GetAllDispositionsRqFilteringDTO {
 
   private String number;

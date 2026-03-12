@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,15 +20,20 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * GetDispositionCloseCreditByIdRsDTO
+ * GetDispositionCloseCreditByIdResponse
  */
 
 @JsonTypeName("getDispositionCloseCreditByIdRsDTO")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class GetDispositionCloseCreditByIdRsDTO {
+/**
+ * DTO GetDispositionCloseCreditByIdResponse.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class GetDispositionCloseCreditByIdResponse {
 
   private UUID id;
 
@@ -89,14 +97,14 @@ public class GetDispositionCloseCreditByIdRsDTO {
 
   private String additionalComment;
 
-  public GetDispositionCloseCreditByIdRsDTO() {
+  public GetDispositionCloseCreditByIdResponse() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public GetDispositionCloseCreditByIdRsDTO(UUID id, String number, Long date, DispositionTypeDTO type, DispositionStatusDTO status, UUID contractId, Integer contractVersion, String operationType, Long eventOperationDate) {
+  public GetDispositionCloseCreditByIdResponse(UUID id, String number, Long date, DispositionTypeDTO type, DispositionStatusDTO status, UUID contractId, Integer contractVersion, String operationType, Long eventOperationDate) {
     this.id = id;
     this.number = number;
     this.date = date;
@@ -108,7 +116,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.eventOperationDate = eventOperationDate;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO id(UUID id) {
+  public GetDispositionCloseCreditByIdResponse id(UUID id) {
     this.id = id;
     return this;
   }
@@ -128,7 +136,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.id = id;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO number(String number) {
+  public GetDispositionCloseCreditByIdResponse number(String number) {
     this.number = number;
     return this;
   }
@@ -148,7 +156,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.number = number;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO date(Long date) {
+  public GetDispositionCloseCreditByIdResponse date(Long date) {
     this.date = date;
     return this;
   }
@@ -168,7 +176,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.date = date;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO type(DispositionTypeDTO type) {
+  public GetDispositionCloseCreditByIdResponse type(DispositionTypeDTO type) {
     this.type = type;
     return this;
   }
@@ -188,7 +196,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.type = type;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO status(DispositionStatusDTO status) {
+  public GetDispositionCloseCreditByIdResponse status(DispositionStatusDTO status) {
     this.status = status;
     return this;
   }
@@ -208,7 +216,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.status = status;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO kodRequest(String kodRequest) {
+  public GetDispositionCloseCreditByIdResponse kodRequest(String kodRequest) {
     this.kodRequest = kodRequest;
     return this;
   }
@@ -228,7 +236,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.kodRequest = kodRequest;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO contractId(UUID contractId) {
+  public GetDispositionCloseCreditByIdResponse contractId(UUID contractId) {
     this.contractId = contractId;
     return this;
   }
@@ -248,7 +256,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.contractId = contractId;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO contractVersion(Integer contractVersion) {
+  public GetDispositionCloseCreditByIdResponse contractVersion(Integer contractVersion) {
     this.contractVersion = contractVersion;
     return this;
   }
@@ -268,7 +276,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.contractVersion = contractVersion;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO operationDate(Long operationDate) {
+  public GetDispositionCloseCreditByIdResponse operationDate(Long operationDate) {
     this.operationDate = operationDate;
     return this;
   }
@@ -288,7 +296,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.operationDate = operationDate;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO operationType(String operationType) {
+  public GetDispositionCloseCreditByIdResponse operationType(String operationType) {
     this.operationType = operationType;
     return this;
   }
@@ -308,7 +316,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.operationType = operationType;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO executorId(UUID executorId) {
+  public GetDispositionCloseCreditByIdResponse executorId(UUID executorId) {
     this.executorId = executorId;
     return this;
   }
@@ -328,7 +336,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.executorId = executorId;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO executorTitle(String executorTitle) {
+  public GetDispositionCloseCreditByIdResponse executorTitle(String executorTitle) {
     this.executorTitle = executorTitle;
     return this;
   }
@@ -348,7 +356,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.executorTitle = executorTitle;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO authorizedId(UUID authorizedId) {
+  public GetDispositionCloseCreditByIdResponse authorizedId(UUID authorizedId) {
     this.authorizedId = authorizedId;
     return this;
   }
@@ -368,7 +376,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.authorizedId = authorizedId;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO authorizedTitle(String authorizedTitle) {
+  public GetDispositionCloseCreditByIdResponse authorizedTitle(String authorizedTitle) {
     this.authorizedTitle = authorizedTitle;
     return this;
   }
@@ -388,7 +396,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.authorizedTitle = authorizedTitle;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO operationBase(String operationBase) {
+  public GetDispositionCloseCreditByIdResponse operationBase(String operationBase) {
     this.operationBase = operationBase;
     return this;
   }
@@ -408,7 +416,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.operationBase = operationBase;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO createdTimestamp(Long createdTimestamp) {
+  public GetDispositionCloseCreditByIdResponse createdTimestamp(Long createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
   }
@@ -428,7 +436,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.createdTimestamp = createdTimestamp;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO createdBy(UUID createdBy) {
+  public GetDispositionCloseCreditByIdResponse createdBy(UUID createdBy) {
     this.createdBy = createdBy;
     return this;
   }
@@ -448,7 +456,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.createdBy = createdBy;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO lastUpdatedTimestamp(Long lastUpdatedTimestamp) {
+  public GetDispositionCloseCreditByIdResponse lastUpdatedTimestamp(Long lastUpdatedTimestamp) {
     this.lastUpdatedTimestamp = lastUpdatedTimestamp;
     return this;
   }
@@ -468,7 +476,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.lastUpdatedTimestamp = lastUpdatedTimestamp;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO lastUpdatedBy(UUID lastUpdatedBy) {
+  public GetDispositionCloseCreditByIdResponse lastUpdatedBy(UUID lastUpdatedBy) {
     this.lastUpdatedBy = lastUpdatedBy;
     return this;
   }
@@ -488,7 +496,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.lastUpdatedBy = lastUpdatedBy;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO contractClientInn(String contractClientInn) {
+  public GetDispositionCloseCreditByIdResponse contractClientInn(String contractClientInn) {
     this.contractClientInn = contractClientInn;
     return this;
   }
@@ -508,7 +516,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.contractClientInn = contractClientInn;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO contractClientName(String contractClientName) {
+  public GetDispositionCloseCreditByIdResponse contractClientName(String contractClientName) {
     this.contractClientName = contractClientName;
     return this;
   }
@@ -528,7 +536,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.contractClientName = contractClientName;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO contractNumber(String contractNumber) {
+  public GetDispositionCloseCreditByIdResponse contractNumber(String contractNumber) {
     this.contractNumber = contractNumber;
     return this;
   }
@@ -548,7 +556,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.contractNumber = contractNumber;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO contractDate(Long contractDate) {
+  public GetDispositionCloseCreditByIdResponse contractDate(Long contractDate) {
     this.contractDate = contractDate;
     return this;
   }
@@ -568,7 +576,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.contractDate = contractDate;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO contractUID(String contractUID) {
+  public GetDispositionCloseCreditByIdResponse contractUID(String contractUID) {
     this.contractUID = contractUID;
     return this;
   }
@@ -588,7 +596,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.contractUID = contractUID;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO contractType(String contractType) {
+  public GetDispositionCloseCreditByIdResponse contractType(String contractType) {
     this.contractType = contractType;
     return this;
   }
@@ -608,7 +616,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.contractType = contractType;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO content(String content) {
+  public GetDispositionCloseCreditByIdResponse content(String content) {
     this.content = content;
     return this;
   }
@@ -628,7 +636,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.content = content;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO comment(String comment) {
+  public GetDispositionCloseCreditByIdResponse comment(String comment) {
     this.comment = comment;
     return this;
   }
@@ -648,7 +656,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.comment = comment;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO verificationPassed(Boolean verificationPassed) {
+  public GetDispositionCloseCreditByIdResponse verificationPassed(Boolean verificationPassed) {
     this.verificationPassed = verificationPassed;
     return this;
   }
@@ -668,7 +676,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.verificationPassed = verificationPassed;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO purposeAfina(String purposeAfina) {
+  public GetDispositionCloseCreditByIdResponse purposeAfina(String purposeAfina) {
     this.purposeAfina = purposeAfina;
     return this;
   }
@@ -688,7 +696,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.purposeAfina = purposeAfina;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO eventOperationDate(Long eventOperationDate) {
+  public GetDispositionCloseCreditByIdResponse eventOperationDate(Long eventOperationDate) {
     this.eventOperationDate = eventOperationDate;
     return this;
   }
@@ -708,7 +716,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     this.eventOperationDate = eventOperationDate;
   }
 
-  public GetDispositionCloseCreditByIdRsDTO additionalComment(String additionalComment) {
+  public GetDispositionCloseCreditByIdResponse additionalComment(String additionalComment) {
     this.additionalComment = additionalComment;
     return this;
   }
@@ -736,7 +744,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetDispositionCloseCreditByIdRsDTO getDispositionCloseCreditByIdRsDTO = (GetDispositionCloseCreditByIdRsDTO) o;
+    GetDispositionCloseCreditByIdResponse getDispositionCloseCreditByIdRsDTO = (GetDispositionCloseCreditByIdResponse) o;
     return Objects.equals(this.id, getDispositionCloseCreditByIdRsDTO.id) &&
         Objects.equals(this.number, getDispositionCloseCreditByIdRsDTO.number) &&
         Objects.equals(this.date, getDispositionCloseCreditByIdRsDTO.date) &&
@@ -778,7 +786,7 @@ public class GetDispositionCloseCreditByIdRsDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetDispositionCloseCreditByIdRsDTO {\n");
+    sb.append("class GetDispositionCloseCreditByIdResponse {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");

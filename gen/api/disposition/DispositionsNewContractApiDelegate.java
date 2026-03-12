@@ -1,11 +1,11 @@
 package ru.domrf.elka.cdrd.contract_service.gen.api.disposition;
 
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.CreateDispositionNewContractRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.CreateDispositionNewContractRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditDispositionNewCreditRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditStatusDispositionNewCreditRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetDispositionNewContractByIdRsDTO;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.CreateDispositionNewContractRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.CreateDispositionNewContractResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditDispositionNewCreditRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditStatusDispositionNewCreditRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetDispositionNewContractByIdResponse;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -42,7 +42,7 @@ public interface DispositionsNewContractApiDelegate {
      *         or Произошла непредвиденная ошибка. (status code 500)
      * @see DispositionsNewContractApi#createDispositionNewContract
      */
-    default ResponseEntity<CreateDispositionNewContractRsDTO> createDispositionNewContract(CreateDispositionNewContractRqDTO createDispositionNewContractRqDTO) {
+    default ResponseEntity<CreateDispositionNewContractResponse> createDispositionNewContract(CreateDispositionNewContractRequest createDispositionNewContractRqDTO) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
@@ -132,7 +132,7 @@ public interface DispositionsNewContractApiDelegate {
      * @see DispositionsNewContractApi#editDispositionNewCredit
      */
     default ResponseEntity<Void> editDispositionNewCredit(UUID id,
-        EditDispositionNewCreditRqDTO editDispositionNewCreditRqDTO) {
+        EditDispositionNewCreditRequest editDispositionNewCreditRqDTO) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
@@ -185,7 +185,7 @@ public interface DispositionsNewContractApiDelegate {
      * @see DispositionsNewContractApi#editStatusDispositionNewCredit
      */
     default ResponseEntity<Void> editStatusDispositionNewCredit(UUID id,
-        EditStatusDispositionNewCreditRqDTO editStatusDispositionNewCreditRqDTO) {
+        EditStatusDispositionNewCreditRequest editStatusDispositionNewCreditRqDTO) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
@@ -231,7 +231,7 @@ public interface DispositionsNewContractApiDelegate {
      *         or Произошла непредвиденная ошибка. (status code 500)
      * @see DispositionsNewContractApi#getDispositionNewContractById
      */
-    default ResponseEntity<GetDispositionNewContractByIdRsDTO> getDispositionNewContractById(UUID id) {
+    default ResponseEntity<GetDispositionNewContractByIdResponse> getDispositionNewContractById(UUID id) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {

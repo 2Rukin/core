@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.FindDispositionsByNumberRsDTO;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.FindDispositionsByNumberResponse;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
@@ -16,14 +19,19 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * PageFindDispositionsByNumberRsDTO
+ * PageFindDispositionsByNumberResponse
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class PageFindDispositionsByNumberRsDTO {
+/**
+ * DTO PageFindDispositionsByNumberResponse.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class PageFindDispositionsByNumberResponse {
 
   private Integer currentPage;
 
@@ -32,23 +40,23 @@ public class PageFindDispositionsByNumberRsDTO {
   private Long totalElements;
 
   @Valid
-  private List<@Valid FindDispositionsByNumberRsDTO> content = new ArrayList<>();
+  private List<@Valid FindDispositionsByNumberResponse> content = new ArrayList<>();
 
-  public PageFindDispositionsByNumberRsDTO() {
+  public PageFindDispositionsByNumberResponse() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public PageFindDispositionsByNumberRsDTO(Integer currentPage, Integer limit, Long totalElements, List<@Valid FindDispositionsByNumberRsDTO> content) {
+  public PageFindDispositionsByNumberResponse(Integer currentPage, Integer limit, Long totalElements, List<@Valid FindDispositionsByNumberResponse> content) {
     this.currentPage = currentPage;
     this.limit = limit;
     this.totalElements = totalElements;
     this.content = content;
   }
 
-  public PageFindDispositionsByNumberRsDTO currentPage(Integer currentPage) {
+  public PageFindDispositionsByNumberResponse currentPage(Integer currentPage) {
     this.currentPage = currentPage;
     return this;
   }
@@ -68,7 +76,7 @@ public class PageFindDispositionsByNumberRsDTO {
     this.currentPage = currentPage;
   }
 
-  public PageFindDispositionsByNumberRsDTO limit(Integer limit) {
+  public PageFindDispositionsByNumberResponse limit(Integer limit) {
     this.limit = limit;
     return this;
   }
@@ -88,7 +96,7 @@ public class PageFindDispositionsByNumberRsDTO {
     this.limit = limit;
   }
 
-  public PageFindDispositionsByNumberRsDTO totalElements(Long totalElements) {
+  public PageFindDispositionsByNumberResponse totalElements(Long totalElements) {
     this.totalElements = totalElements;
     return this;
   }
@@ -108,12 +116,12 @@ public class PageFindDispositionsByNumberRsDTO {
     this.totalElements = totalElements;
   }
 
-  public PageFindDispositionsByNumberRsDTO content(List<@Valid FindDispositionsByNumberRsDTO> content) {
+  public PageFindDispositionsByNumberResponse content(List<@Valid FindDispositionsByNumberResponse> content) {
     this.content = content;
     return this;
   }
 
-  public PageFindDispositionsByNumberRsDTO addContentItem(FindDispositionsByNumberRsDTO contentItem) {
+  public PageFindDispositionsByNumberResponse addContentItem(FindDispositionsByNumberResponse contentItem) {
     if (this.content == null) {
       this.content = new ArrayList<>();
     }
@@ -128,11 +136,11 @@ public class PageFindDispositionsByNumberRsDTO {
   @NotNull @Valid 
   @Schema(name = "content", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("content")
-  public List<@Valid FindDispositionsByNumberRsDTO> getContent() {
+  public List<@Valid FindDispositionsByNumberResponse> getContent() {
     return content;
   }
 
-  public void setContent(List<@Valid FindDispositionsByNumberRsDTO> content) {
+  public void setContent(List<@Valid FindDispositionsByNumberResponse> content) {
     this.content = content;
   }
 
@@ -144,7 +152,7 @@ public class PageFindDispositionsByNumberRsDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PageFindDispositionsByNumberRsDTO pageFindDispositionsByNumberRsDTO = (PageFindDispositionsByNumberRsDTO) o;
+    PageFindDispositionsByNumberResponse pageFindDispositionsByNumberRsDTO = (PageFindDispositionsByNumberResponse) o;
     return Objects.equals(this.currentPage, pageFindDispositionsByNumberRsDTO.currentPage) &&
         Objects.equals(this.limit, pageFindDispositionsByNumberRsDTO.limit) &&
         Objects.equals(this.totalElements, pageFindDispositionsByNumberRsDTO.totalElements) &&
@@ -159,7 +167,7 @@ public class PageFindDispositionsByNumberRsDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PageFindDispositionsByNumberRsDTO {\n");
+    sb.append("class PageFindDispositionsByNumberResponse {\n");
     sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    totalElements: ").append(toIndentedString(totalElements)).append("\n");

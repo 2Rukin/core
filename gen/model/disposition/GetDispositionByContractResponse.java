@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,19 +17,24 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * GetDispositionByContractRsDTO
+ * GetDispositionByContractResponse
  */
 
 @JsonTypeName("getDispositionByContractRsDTO")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class GetDispositionByContractRsDTO {
+/**
+ * DTO GetDispositionByContractResponse.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class GetDispositionByContractResponse {
 
   private UUID dispositionId;
 
-  public GetDispositionByContractRsDTO dispositionId(UUID dispositionId) {
+  public GetDispositionByContractResponse dispositionId(UUID dispositionId) {
     this.dispositionId = dispositionId;
     return this;
   }
@@ -54,7 +62,7 @@ public class GetDispositionByContractRsDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetDispositionByContractRsDTO getDispositionByContractRsDTO = (GetDispositionByContractRsDTO) o;
+    GetDispositionByContractResponse getDispositionByContractRsDTO = (GetDispositionByContractResponse) o;
     return Objects.equals(this.dispositionId, getDispositionByContractRsDTO.dispositionId);
   }
 
@@ -66,7 +74,7 @@ public class GetDispositionByContractRsDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetDispositionByContractRsDTO {\n");
+    sb.append("class GetDispositionByContractResponse {\n");
     sb.append("    dispositionId: ").append(toIndentedString(dispositionId)).append("\n");
     sb.append("}");
     return sb.toString();

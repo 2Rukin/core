@@ -1,9 +1,9 @@
 package ru.domrf.elka.cdrd.contract_service.gen.api.tariff;
 
-import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.ErrorRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffListRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffRsDTO;
+import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.ErrorResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffListResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffResponse;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

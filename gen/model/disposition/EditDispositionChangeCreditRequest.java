@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,15 +17,20 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * EditDispositionChangeCreditRqDTO
+ * EditDispositionChangeCreditRequest
  */
 
 @JsonTypeName("editDispositionChangeCreditRqDTO")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class EditDispositionChangeCreditRqDTO {
+/**
+ * DTO EditDispositionChangeCreditRequest.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class EditDispositionChangeCreditRequest {
 
   private String number;
 
@@ -48,14 +56,14 @@ public class EditDispositionChangeCreditRqDTO {
 
   private String additionalComment;
 
-  public EditDispositionChangeCreditRqDTO() {
+  public EditDispositionChangeCreditRequest() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public EditDispositionChangeCreditRqDTO(String number, Long date, UUID contractId, Integer contractVersion, Long operationDate, Long eventOperationDate) {
+  public EditDispositionChangeCreditRequest(String number, Long date, UUID contractId, Integer contractVersion, Long operationDate, Long eventOperationDate) {
     this.number = number;
     this.date = date;
     this.contractId = contractId;
@@ -64,7 +72,7 @@ public class EditDispositionChangeCreditRqDTO {
     this.eventOperationDate = eventOperationDate;
   }
 
-  public EditDispositionChangeCreditRqDTO number(String number) {
+  public EditDispositionChangeCreditRequest number(String number) {
     this.number = number;
     return this;
   }
@@ -84,7 +92,7 @@ public class EditDispositionChangeCreditRqDTO {
     this.number = number;
   }
 
-  public EditDispositionChangeCreditRqDTO date(Long date) {
+  public EditDispositionChangeCreditRequest date(Long date) {
     this.date = date;
     return this;
   }
@@ -104,7 +112,7 @@ public class EditDispositionChangeCreditRqDTO {
     this.date = date;
   }
 
-  public EditDispositionChangeCreditRqDTO kodRequest(String kodRequest) {
+  public EditDispositionChangeCreditRequest kodRequest(String kodRequest) {
     this.kodRequest = kodRequest;
     return this;
   }
@@ -124,7 +132,7 @@ public class EditDispositionChangeCreditRqDTO {
     this.kodRequest = kodRequest;
   }
 
-  public EditDispositionChangeCreditRqDTO contractId(UUID contractId) {
+  public EditDispositionChangeCreditRequest contractId(UUID contractId) {
     this.contractId = contractId;
     return this;
   }
@@ -144,7 +152,7 @@ public class EditDispositionChangeCreditRqDTO {
     this.contractId = contractId;
   }
 
-  public EditDispositionChangeCreditRqDTO contractVersion(Integer contractVersion) {
+  public EditDispositionChangeCreditRequest contractVersion(Integer contractVersion) {
     this.contractVersion = contractVersion;
     return this;
   }
@@ -164,7 +172,7 @@ public class EditDispositionChangeCreditRqDTO {
     this.contractVersion = contractVersion;
   }
 
-  public EditDispositionChangeCreditRqDTO operationDate(Long operationDate) {
+  public EditDispositionChangeCreditRequest operationDate(Long operationDate) {
     this.operationDate = operationDate;
     return this;
   }
@@ -184,7 +192,7 @@ public class EditDispositionChangeCreditRqDTO {
     this.operationDate = operationDate;
   }
 
-  public EditDispositionChangeCreditRqDTO operationType(String operationType) {
+  public EditDispositionChangeCreditRequest operationType(String operationType) {
     this.operationType = operationType;
     return this;
   }
@@ -204,7 +212,7 @@ public class EditDispositionChangeCreditRqDTO {
     this.operationType = operationType;
   }
 
-  public EditDispositionChangeCreditRqDTO operationBase(String operationBase) {
+  public EditDispositionChangeCreditRequest operationBase(String operationBase) {
     this.operationBase = operationBase;
     return this;
   }
@@ -224,7 +232,7 @@ public class EditDispositionChangeCreditRqDTO {
     this.operationBase = operationBase;
   }
 
-  public EditDispositionChangeCreditRqDTO content(String content) {
+  public EditDispositionChangeCreditRequest content(String content) {
     this.content = content;
     return this;
   }
@@ -244,7 +252,7 @@ public class EditDispositionChangeCreditRqDTO {
     this.content = content;
   }
 
-  public EditDispositionChangeCreditRqDTO comment(String comment) {
+  public EditDispositionChangeCreditRequest comment(String comment) {
     this.comment = comment;
     return this;
   }
@@ -264,7 +272,7 @@ public class EditDispositionChangeCreditRqDTO {
     this.comment = comment;
   }
 
-  public EditDispositionChangeCreditRqDTO eventOperationDate(Long eventOperationDate) {
+  public EditDispositionChangeCreditRequest eventOperationDate(Long eventOperationDate) {
     this.eventOperationDate = eventOperationDate;
     return this;
   }
@@ -284,7 +292,7 @@ public class EditDispositionChangeCreditRqDTO {
     this.eventOperationDate = eventOperationDate;
   }
 
-  public EditDispositionChangeCreditRqDTO additionalComment(String additionalComment) {
+  public EditDispositionChangeCreditRequest additionalComment(String additionalComment) {
     this.additionalComment = additionalComment;
     return this;
   }
@@ -312,7 +320,7 @@ public class EditDispositionChangeCreditRqDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EditDispositionChangeCreditRqDTO editDispositionChangeCreditRqDTO = (EditDispositionChangeCreditRqDTO) o;
+    EditDispositionChangeCreditRequest editDispositionChangeCreditRqDTO = (EditDispositionChangeCreditRequest) o;
     return Objects.equals(this.number, editDispositionChangeCreditRqDTO.number) &&
         Objects.equals(this.date, editDispositionChangeCreditRqDTO.date) &&
         Objects.equals(this.kodRequest, editDispositionChangeCreditRqDTO.kodRequest) &&
@@ -335,7 +343,7 @@ public class EditDispositionChangeCreditRqDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EditDispositionChangeCreditRqDTO {\n");
+    sb.append("class EditDispositionChangeCreditRequest {\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    kodRequest: ").append(toIndentedString(kodRequest)).append("\n");

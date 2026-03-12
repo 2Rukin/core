@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,7 +20,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
  * Набор данных, необходимый для создания нового универсального распоряжения
@@ -25,8 +27,14 @@ import jakarta.annotation.Generated;
 
 @Schema(name = "editDispositionOtherRqDTO", description = "Набор данных, необходимый для создания нового универсального распоряжения")
 @JsonTypeName("editDispositionOtherRqDTO")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class EditDispositionOtherRqDTO {
+/**
+ * DTO EditDispositionOtherRequest.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class EditDispositionOtherRequest {
 
   private UUID id;
 
@@ -48,14 +56,14 @@ public class EditDispositionOtherRqDTO {
 
   private Integer contractVersion;
 
-  public EditDispositionOtherRqDTO() {
+  public EditDispositionOtherRequest() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public EditDispositionOtherRqDTO(String number, Long date, DispositionStatusDTO status, OperationKind operationKind, String content, String reason, UUID contractId) {
+  public EditDispositionOtherRequest(String number, Long date, DispositionStatusDTO status, OperationKind operationKind, String content, String reason, UUID contractId) {
     this.number = number;
     this.date = date;
     this.status = status;
@@ -65,7 +73,7 @@ public class EditDispositionOtherRqDTO {
     this.contractId = contractId;
   }
 
-  public EditDispositionOtherRqDTO id(UUID id) {
+  public EditDispositionOtherRequest id(UUID id) {
     this.id = id;
     return this;
   }
@@ -85,7 +93,7 @@ public class EditDispositionOtherRqDTO {
     this.id = id;
   }
 
-  public EditDispositionOtherRqDTO number(String number) {
+  public EditDispositionOtherRequest number(String number) {
     this.number = number;
     return this;
   }
@@ -105,7 +113,7 @@ public class EditDispositionOtherRqDTO {
     this.number = number;
   }
 
-  public EditDispositionOtherRqDTO date(Long date) {
+  public EditDispositionOtherRequest date(Long date) {
     this.date = date;
     return this;
   }
@@ -125,7 +133,7 @@ public class EditDispositionOtherRqDTO {
     this.date = date;
   }
 
-  public EditDispositionOtherRqDTO status(DispositionStatusDTO status) {
+  public EditDispositionOtherRequest status(DispositionStatusDTO status) {
     this.status = status;
     return this;
   }
@@ -145,7 +153,7 @@ public class EditDispositionOtherRqDTO {
     this.status = status;
   }
 
-  public EditDispositionOtherRqDTO operationKind(OperationKind operationKind) {
+  public EditDispositionOtherRequest operationKind(OperationKind operationKind) {
     this.operationKind = operationKind;
     return this;
   }
@@ -165,7 +173,7 @@ public class EditDispositionOtherRqDTO {
     this.operationKind = operationKind;
   }
 
-  public EditDispositionOtherRqDTO kindOther(String kindOther) {
+  public EditDispositionOtherRequest kindOther(String kindOther) {
     this.kindOther = kindOther;
     return this;
   }
@@ -185,7 +193,7 @@ public class EditDispositionOtherRqDTO {
     this.kindOther = kindOther;
   }
 
-  public EditDispositionOtherRqDTO content(String content) {
+  public EditDispositionOtherRequest content(String content) {
     this.content = content;
     return this;
   }
@@ -205,7 +213,7 @@ public class EditDispositionOtherRqDTO {
     this.content = content;
   }
 
-  public EditDispositionOtherRqDTO reason(String reason) {
+  public EditDispositionOtherRequest reason(String reason) {
     this.reason = reason;
     return this;
   }
@@ -225,7 +233,7 @@ public class EditDispositionOtherRqDTO {
     this.reason = reason;
   }
 
-  public EditDispositionOtherRqDTO contractId(UUID contractId) {
+  public EditDispositionOtherRequest contractId(UUID contractId) {
     this.contractId = contractId;
     return this;
   }
@@ -245,7 +253,7 @@ public class EditDispositionOtherRqDTO {
     this.contractId = contractId;
   }
 
-  public EditDispositionOtherRqDTO contractVersion(Integer contractVersion) {
+  public EditDispositionOtherRequest contractVersion(Integer contractVersion) {
     this.contractVersion = contractVersion;
     return this;
   }
@@ -273,7 +281,7 @@ public class EditDispositionOtherRqDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EditDispositionOtherRqDTO editDispositionOtherRqDTO = (EditDispositionOtherRqDTO) o;
+    EditDispositionOtherRequest editDispositionOtherRqDTO = (EditDispositionOtherRequest) o;
     return Objects.equals(this.id, editDispositionOtherRqDTO.id) &&
         Objects.equals(this.number, editDispositionOtherRqDTO.number) &&
         Objects.equals(this.date, editDispositionOtherRqDTO.date) &&
@@ -294,7 +302,7 @@ public class EditDispositionOtherRqDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EditDispositionOtherRqDTO {\n");
+    sb.append("class EditDispositionOtherRequest {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");

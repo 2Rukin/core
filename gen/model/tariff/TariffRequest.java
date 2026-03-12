@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.tariff;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,7 +17,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
  * Создание/обновление тарифа в DTO
@@ -22,8 +24,14 @@ import jakarta.annotation.Generated;
 
 @Schema(name = "tariffRqDTO", description = "Создание/обновление тарифа в DTO")
 @JsonTypeName("tariffRqDTO")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.237390300+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class TariffRqDTO {
+/**
+ * DTO TariffRequest.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class TariffRequest {
 
   private String externalCode;
 
@@ -49,21 +57,21 @@ public class TariffRqDTO {
 
   private Boolean isActive;
 
-  public TariffRqDTO() {
+  public TariffRequest() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public TariffRqDTO(String nameTariff, String nameFormula, UUID formulaPictureUUID, UUID helpFileUUID) {
+  public TariffRequest(String nameTariff, String nameFormula, UUID formulaPictureUUID, UUID helpFileUUID) {
     this.nameTariff = nameTariff;
     this.nameFormula = nameFormula;
     this.formulaPictureUUID = formulaPictureUUID;
     this.helpFileUUID = helpFileUUID;
   }
 
-  public TariffRqDTO externalCode(String externalCode) {
+  public TariffRequest externalCode(String externalCode) {
     this.externalCode = externalCode;
     return this;
   }
@@ -83,7 +91,7 @@ public class TariffRqDTO {
     this.externalCode = externalCode;
   }
 
-  public TariffRqDTO nameTariff(String nameTariff) {
+  public TariffRequest nameTariff(String nameTariff) {
     this.nameTariff = nameTariff;
     return this;
   }
@@ -103,7 +111,7 @@ public class TariffRqDTO {
     this.nameTariff = nameTariff;
   }
 
-  public TariffRqDTO nameFormula(String nameFormula) {
+  public TariffRequest nameFormula(String nameFormula) {
     this.nameFormula = nameFormula;
     return this;
   }
@@ -123,7 +131,7 @@ public class TariffRqDTO {
     this.nameFormula = nameFormula;
   }
 
-  public TariffRqDTO formulaPictureUUID(UUID formulaPictureUUID) {
+  public TariffRequest formulaPictureUUID(UUID formulaPictureUUID) {
     this.formulaPictureUUID = formulaPictureUUID;
     return this;
   }
@@ -143,7 +151,7 @@ public class TariffRqDTO {
     this.formulaPictureUUID = formulaPictureUUID;
   }
 
-  public TariffRqDTO formulaPictureMime(String formulaPictureMime) {
+  public TariffRequest formulaPictureMime(String formulaPictureMime) {
     this.formulaPictureMime = formulaPictureMime;
     return this;
   }
@@ -163,7 +171,7 @@ public class TariffRqDTO {
     this.formulaPictureMime = formulaPictureMime;
   }
 
-  public TariffRqDTO formulaPictureExtension(String formulaPictureExtension) {
+  public TariffRequest formulaPictureExtension(String formulaPictureExtension) {
     this.formulaPictureExtension = formulaPictureExtension;
     return this;
   }
@@ -183,7 +191,7 @@ public class TariffRqDTO {
     this.formulaPictureExtension = formulaPictureExtension;
   }
 
-  public TariffRqDTO formulaPictureSizeBytes(Integer formulaPictureSizeBytes) {
+  public TariffRequest formulaPictureSizeBytes(Integer formulaPictureSizeBytes) {
     this.formulaPictureSizeBytes = formulaPictureSizeBytes;
     return this;
   }
@@ -203,7 +211,7 @@ public class TariffRqDTO {
     this.formulaPictureSizeBytes = formulaPictureSizeBytes;
   }
 
-  public TariffRqDTO helpFileUUID(UUID helpFileUUID) {
+  public TariffRequest helpFileUUID(UUID helpFileUUID) {
     this.helpFileUUID = helpFileUUID;
     return this;
   }
@@ -223,7 +231,7 @@ public class TariffRqDTO {
     this.helpFileUUID = helpFileUUID;
   }
 
-  public TariffRqDTO helpFileMime(String helpFileMime) {
+  public TariffRequest helpFileMime(String helpFileMime) {
     this.helpFileMime = helpFileMime;
     return this;
   }
@@ -243,7 +251,7 @@ public class TariffRqDTO {
     this.helpFileMime = helpFileMime;
   }
 
-  public TariffRqDTO helpFileExtension(String helpFileExtension) {
+  public TariffRequest helpFileExtension(String helpFileExtension) {
     this.helpFileExtension = helpFileExtension;
     return this;
   }
@@ -263,7 +271,7 @@ public class TariffRqDTO {
     this.helpFileExtension = helpFileExtension;
   }
 
-  public TariffRqDTO helpFileSizeBytes(Integer helpFileSizeBytes) {
+  public TariffRequest helpFileSizeBytes(Integer helpFileSizeBytes) {
     this.helpFileSizeBytes = helpFileSizeBytes;
     return this;
   }
@@ -283,7 +291,7 @@ public class TariffRqDTO {
     this.helpFileSizeBytes = helpFileSizeBytes;
   }
 
-  public TariffRqDTO isActive(Boolean isActive) {
+  public TariffRequest isActive(Boolean isActive) {
     this.isActive = isActive;
     return this;
   }
@@ -311,7 +319,7 @@ public class TariffRqDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TariffRqDTO tariffRqDTO = (TariffRqDTO) o;
+    TariffRequest tariffRqDTO = (TariffRequest) o;
     return Objects.equals(this.externalCode, tariffRqDTO.externalCode) &&
         Objects.equals(this.nameTariff, tariffRqDTO.nameTariff) &&
         Objects.equals(this.nameFormula, tariffRqDTO.nameFormula) &&
@@ -334,7 +342,7 @@ public class TariffRqDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TariffRqDTO {\n");
+    sb.append("class TariffRequest {\n");
     sb.append("    externalCode: ").append(toIndentedString(externalCode)).append("\n");
     sb.append("    nameTariff: ").append(toIndentedString(nameTariff)).append("\n");
     sb.append("    nameFormula: ").append(toIndentedString(nameFormula)).append("\n");

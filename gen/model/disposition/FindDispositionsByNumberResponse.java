@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -12,14 +15,19 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * FindDispositionsByNumberRsDTO
+ * FindDispositionsByNumberResponse
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class FindDispositionsByNumberRsDTO {
+/**
+ * DTO FindDispositionsByNumberResponse.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class FindDispositionsByNumberResponse {
 
   private Long id;
 
@@ -29,7 +37,7 @@ public class FindDispositionsByNumberRsDTO {
 
   private String status;
 
-  public FindDispositionsByNumberRsDTO id(Long id) {
+  public FindDispositionsByNumberResponse id(Long id) {
     this.id = id;
     return this;
   }
@@ -49,7 +57,7 @@ public class FindDispositionsByNumberRsDTO {
     this.id = id;
   }
 
-  public FindDispositionsByNumberRsDTO number(String number) {
+  public FindDispositionsByNumberResponse number(String number) {
     this.number = number;
     return this;
   }
@@ -69,7 +77,7 @@ public class FindDispositionsByNumberRsDTO {
     this.number = number;
   }
 
-  public FindDispositionsByNumberRsDTO type(String type) {
+  public FindDispositionsByNumberResponse type(String type) {
     this.type = type;
     return this;
   }
@@ -89,7 +97,7 @@ public class FindDispositionsByNumberRsDTO {
     this.type = type;
   }
 
-  public FindDispositionsByNumberRsDTO status(String status) {
+  public FindDispositionsByNumberResponse status(String status) {
     this.status = status;
     return this;
   }
@@ -117,7 +125,7 @@ public class FindDispositionsByNumberRsDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FindDispositionsByNumberRsDTO findDispositionsByNumberRsDTO = (FindDispositionsByNumberRsDTO) o;
+    FindDispositionsByNumberResponse findDispositionsByNumberRsDTO = (FindDispositionsByNumberResponse) o;
     return Objects.equals(this.id, findDispositionsByNumberRsDTO.id) &&
         Objects.equals(this.number, findDispositionsByNumberRsDTO.number) &&
         Objects.equals(this.type, findDispositionsByNumberRsDTO.type) &&
@@ -132,7 +140,7 @@ public class FindDispositionsByNumberRsDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FindDispositionsByNumberRsDTO {\n");
+    sb.append("class FindDispositionsByNumberResponse {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

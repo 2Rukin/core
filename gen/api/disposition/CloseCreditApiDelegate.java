@@ -1,10 +1,10 @@
 package ru.domrf.elka.cdrd.contract_service.gen.api.disposition;
 
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.CreateDispositionCloseCreditRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditDispositionCloseCreditRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditStatusDispositionCloseCreditRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetDispositionCloseCreditByIdRsDTO;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.CreateDispositionCloseCreditRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditDispositionCloseCreditRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditStatusDispositionCloseCreditRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetDispositionCloseCreditByIdResponse;
 import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ShortDispositionInfo;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
@@ -43,7 +43,7 @@ public interface CloseCreditApiDelegate {
      *         or Internal Server Error Недоступность сервера Иные неучтенные ошибки (status code 500)
      * @see CloseCreditApi#createDispositionCloseCredit
      */
-    default ResponseEntity<ShortDispositionInfo> createDispositionCloseCredit(CreateDispositionCloseCreditRqDTO createDispositionCloseCreditRqDTO) {
+    default ResponseEntity<ShortDispositionInfo> createDispositionCloseCredit(CreateDispositionCloseCreditRequest createDispositionCloseCreditRqDTO) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
@@ -137,7 +137,7 @@ public interface CloseCreditApiDelegate {
      * @see CloseCreditApi#editDispositionCloseCredit
      */
     default ResponseEntity<Void> editDispositionCloseCredit(UUID id,
-        EditDispositionCloseCreditRqDTO editDispositionCloseCreditRqDTO) {
+        EditDispositionCloseCreditRequest editDispositionCloseCreditRqDTO) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
@@ -185,7 +185,7 @@ public interface CloseCreditApiDelegate {
      * @see CloseCreditApi#editStatusDispositionCloseCredit
      */
     default ResponseEntity<Void> editStatusDispositionCloseCredit(UUID id,
-        EditStatusDispositionCloseCreditRqDTO editStatusDispositionCloseCreditRqDTO) {
+        EditStatusDispositionCloseCreditRequest editStatusDispositionCloseCreditRqDTO) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
@@ -231,7 +231,7 @@ public interface CloseCreditApiDelegate {
      *         or Internal Server Error  Недоступность сервера  Иные неучтенные ошибки (status code 500)
      * @see CloseCreditApi#getDispositionCloseCreditDetailsById
      */
-    default ResponseEntity<GetDispositionCloseCreditByIdRsDTO> getDispositionCloseCreditDetailsById(UUID id) {
+    default ResponseEntity<GetDispositionCloseCreditByIdResponse> getDispositionCloseCreditDetailsById(UUID id) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {

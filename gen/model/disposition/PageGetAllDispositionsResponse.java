@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -9,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetAllDispositionsRqFilteringDTO;
 import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetAllDispositionsRqSortingDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetAllDispositionsRsDTO;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetAllDispositionsResponse;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
@@ -18,14 +21,19 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * PageGetAllDispositionsRsDTO
+ * PageGetAllDispositionsResponse
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class PageGetAllDispositionsRsDTO {
+/**
+ * DTO PageGetAllDispositionsResponse.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class PageGetAllDispositionsResponse {
 
   private Integer currentPage;
 
@@ -38,16 +46,16 @@ public class PageGetAllDispositionsRsDTO {
   private GetAllDispositionsRqFilteringDTO filtering;
 
   @Valid
-  private List<@Valid GetAllDispositionsRsDTO> content = new ArrayList<>();
+  private List<@Valid GetAllDispositionsResponse> content = new ArrayList<>();
 
-  public PageGetAllDispositionsRsDTO() {
+  public PageGetAllDispositionsResponse() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public PageGetAllDispositionsRsDTO(Integer currentPage, Integer limit, Long totalElements, GetAllDispositionsRqSortingDTO sorting, List<@Valid GetAllDispositionsRsDTO> content) {
+  public PageGetAllDispositionsResponse(Integer currentPage, Integer limit, Long totalElements, GetAllDispositionsRqSortingDTO sorting, List<@Valid GetAllDispositionsResponse> content) {
     this.currentPage = currentPage;
     this.limit = limit;
     this.totalElements = totalElements;
@@ -55,7 +63,7 @@ public class PageGetAllDispositionsRsDTO {
     this.content = content;
   }
 
-  public PageGetAllDispositionsRsDTO currentPage(Integer currentPage) {
+  public PageGetAllDispositionsResponse currentPage(Integer currentPage) {
     this.currentPage = currentPage;
     return this;
   }
@@ -75,7 +83,7 @@ public class PageGetAllDispositionsRsDTO {
     this.currentPage = currentPage;
   }
 
-  public PageGetAllDispositionsRsDTO limit(Integer limit) {
+  public PageGetAllDispositionsResponse limit(Integer limit) {
     this.limit = limit;
     return this;
   }
@@ -95,7 +103,7 @@ public class PageGetAllDispositionsRsDTO {
     this.limit = limit;
   }
 
-  public PageGetAllDispositionsRsDTO totalElements(Long totalElements) {
+  public PageGetAllDispositionsResponse totalElements(Long totalElements) {
     this.totalElements = totalElements;
     return this;
   }
@@ -115,7 +123,7 @@ public class PageGetAllDispositionsRsDTO {
     this.totalElements = totalElements;
   }
 
-  public PageGetAllDispositionsRsDTO sorting(GetAllDispositionsRqSortingDTO sorting) {
+  public PageGetAllDispositionsResponse sorting(GetAllDispositionsRqSortingDTO sorting) {
     this.sorting = sorting;
     return this;
   }
@@ -135,7 +143,7 @@ public class PageGetAllDispositionsRsDTO {
     this.sorting = sorting;
   }
 
-  public PageGetAllDispositionsRsDTO filtering(GetAllDispositionsRqFilteringDTO filtering) {
+  public PageGetAllDispositionsResponse filtering(GetAllDispositionsRqFilteringDTO filtering) {
     this.filtering = filtering;
     return this;
   }
@@ -155,12 +163,12 @@ public class PageGetAllDispositionsRsDTO {
     this.filtering = filtering;
   }
 
-  public PageGetAllDispositionsRsDTO content(List<@Valid GetAllDispositionsRsDTO> content) {
+  public PageGetAllDispositionsResponse content(List<@Valid GetAllDispositionsResponse> content) {
     this.content = content;
     return this;
   }
 
-  public PageGetAllDispositionsRsDTO addContentItem(GetAllDispositionsRsDTO contentItem) {
+  public PageGetAllDispositionsResponse addContentItem(GetAllDispositionsResponse contentItem) {
     if (this.content == null) {
       this.content = new ArrayList<>();
     }
@@ -175,11 +183,11 @@ public class PageGetAllDispositionsRsDTO {
   @NotNull @Valid 
   @Schema(name = "content", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("content")
-  public List<@Valid GetAllDispositionsRsDTO> getContent() {
+  public List<@Valid GetAllDispositionsResponse> getContent() {
     return content;
   }
 
-  public void setContent(List<@Valid GetAllDispositionsRsDTO> content) {
+  public void setContent(List<@Valid GetAllDispositionsResponse> content) {
     this.content = content;
   }
 
@@ -191,7 +199,7 @@ public class PageGetAllDispositionsRsDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PageGetAllDispositionsRsDTO pageGetAllDispositionsRsDTO = (PageGetAllDispositionsRsDTO) o;
+    PageGetAllDispositionsResponse pageGetAllDispositionsRsDTO = (PageGetAllDispositionsResponse) o;
     return Objects.equals(this.currentPage, pageGetAllDispositionsRsDTO.currentPage) &&
         Objects.equals(this.limit, pageGetAllDispositionsRsDTO.limit) &&
         Objects.equals(this.totalElements, pageGetAllDispositionsRsDTO.totalElements) &&
@@ -208,7 +216,7 @@ public class PageGetAllDispositionsRsDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PageGetAllDispositionsRsDTO {\n");
+    sb.append("class PageGetAllDispositionsResponse {\n");
     sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    totalElements: ").append(toIndentedString(totalElements)).append("\n");

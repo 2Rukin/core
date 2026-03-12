@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,14 +18,19 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * CreateDispositionNewContractRqDTO
+ * CreateDispositionNewContractRequest
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class CreateDispositionNewContractRqDTO {
+/**
+ * DTO CreateDispositionNewContractRequest.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class CreateDispositionNewContractRequest {
 
   private String number;
 
@@ -44,14 +52,14 @@ public class CreateDispositionNewContractRqDTO {
 
   private String comment;
 
-  public CreateDispositionNewContractRqDTO() {
+  public CreateDispositionNewContractRequest() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public CreateDispositionNewContractRqDTO(String number, Long date, DispositionStatusDTO status, String reason, UUID contractId, Integer contractVersion) {
+  public CreateDispositionNewContractRequest(String number, Long date, DispositionStatusDTO status, String reason, UUID contractId, Integer contractVersion) {
     this.number = number;
     this.date = date;
     this.status = status;
@@ -60,7 +68,7 @@ public class CreateDispositionNewContractRqDTO {
     this.contractVersion = contractVersion;
   }
 
-  public CreateDispositionNewContractRqDTO number(String number) {
+  public CreateDispositionNewContractRequest number(String number) {
     this.number = number;
     return this;
   }
@@ -80,7 +88,7 @@ public class CreateDispositionNewContractRqDTO {
     this.number = number;
   }
 
-  public CreateDispositionNewContractRqDTO date(Long date) {
+  public CreateDispositionNewContractRequest date(Long date) {
     this.date = date;
     return this;
   }
@@ -100,7 +108,7 @@ public class CreateDispositionNewContractRqDTO {
     this.date = date;
   }
 
-  public CreateDispositionNewContractRqDTO status(DispositionStatusDTO status) {
+  public CreateDispositionNewContractRequest status(DispositionStatusDTO status) {
     this.status = status;
     return this;
   }
@@ -120,7 +128,7 @@ public class CreateDispositionNewContractRqDTO {
     this.status = status;
   }
 
-  public CreateDispositionNewContractRqDTO kodRequest(String kodRequest) {
+  public CreateDispositionNewContractRequest kodRequest(String kodRequest) {
     this.kodRequest = kodRequest;
     return this;
   }
@@ -140,7 +148,7 @@ public class CreateDispositionNewContractRqDTO {
     this.kodRequest = kodRequest;
   }
 
-  public CreateDispositionNewContractRqDTO reason(String reason) {
+  public CreateDispositionNewContractRequest reason(String reason) {
     this.reason = reason;
     return this;
   }
@@ -160,7 +168,7 @@ public class CreateDispositionNewContractRqDTO {
     this.reason = reason;
   }
 
-  public CreateDispositionNewContractRqDTO contractId(UUID contractId) {
+  public CreateDispositionNewContractRequest contractId(UUID contractId) {
     this.contractId = contractId;
     return this;
   }
@@ -180,7 +188,7 @@ public class CreateDispositionNewContractRqDTO {
     this.contractId = contractId;
   }
 
-  public CreateDispositionNewContractRqDTO contractVersion(Integer contractVersion) {
+  public CreateDispositionNewContractRequest contractVersion(Integer contractVersion) {
     this.contractVersion = contractVersion;
     return this;
   }
@@ -200,7 +208,7 @@ public class CreateDispositionNewContractRqDTO {
     this.contractVersion = contractVersion;
   }
 
-  public CreateDispositionNewContractRqDTO operationDate(Long operationDate) {
+  public CreateDispositionNewContractRequest operationDate(Long operationDate) {
     this.operationDate = operationDate;
     return this;
   }
@@ -220,7 +228,7 @@ public class CreateDispositionNewContractRqDTO {
     this.operationDate = operationDate;
   }
 
-  public CreateDispositionNewContractRqDTO operationBase(String operationBase) {
+  public CreateDispositionNewContractRequest operationBase(String operationBase) {
     this.operationBase = operationBase;
     return this;
   }
@@ -240,7 +248,7 @@ public class CreateDispositionNewContractRqDTO {
     this.operationBase = operationBase;
   }
 
-  public CreateDispositionNewContractRqDTO comment(String comment) {
+  public CreateDispositionNewContractRequest comment(String comment) {
     this.comment = comment;
     return this;
   }
@@ -268,7 +276,7 @@ public class CreateDispositionNewContractRqDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateDispositionNewContractRqDTO createDispositionNewContractRqDTO = (CreateDispositionNewContractRqDTO) o;
+    CreateDispositionNewContractRequest createDispositionNewContractRqDTO = (CreateDispositionNewContractRequest) o;
     return Objects.equals(this.number, createDispositionNewContractRqDTO.number) &&
         Objects.equals(this.date, createDispositionNewContractRqDTO.date) &&
         Objects.equals(this.status, createDispositionNewContractRqDTO.status) &&
@@ -289,7 +297,7 @@ public class CreateDispositionNewContractRqDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateDispositionNewContractRqDTO {\n");
+    sb.append("class CreateDispositionNewContractRequest {\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
