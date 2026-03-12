@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -13,32 +16,37 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * DispositionPrintRsDTO
+ * DispositionPrintResponse
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class DispositionPrintRsDTO {
+/**
+ * DTO DispositionPrintResponse.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class DispositionPrintResponse {
 
   private UUID id;
 
   private String file;
 
-  public DispositionPrintRsDTO() {
+  public DispositionPrintResponse() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public DispositionPrintRsDTO(UUID id, String file) {
+  public DispositionPrintResponse(UUID id, String file) {
     this.id = id;
     this.file = file;
   }
 
-  public DispositionPrintRsDTO id(UUID id) {
+  public DispositionPrintResponse id(UUID id) {
     this.id = id;
     return this;
   }
@@ -58,7 +66,7 @@ public class DispositionPrintRsDTO {
     this.id = id;
   }
 
-  public DispositionPrintRsDTO file(String file) {
+  public DispositionPrintResponse file(String file) {
     this.file = file;
     return this;
   }
@@ -86,7 +94,7 @@ public class DispositionPrintRsDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DispositionPrintRsDTO dispositionPrintRsDTO = (DispositionPrintRsDTO) o;
+    DispositionPrintResponse dispositionPrintRsDTO = (DispositionPrintResponse) o;
     return Objects.equals(this.id, dispositionPrintRsDTO.id) &&
         Objects.equals(this.file, dispositionPrintRsDTO.file);
   }
@@ -99,7 +107,7 @@ public class DispositionPrintRsDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DispositionPrintRsDTO {\n");
+    sb.append("class DispositionPrintResponse {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    file: ").append(toIndentedString(file)).append("\n");
     sb.append("}");

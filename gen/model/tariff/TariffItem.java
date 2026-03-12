@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.tariff;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,7 +17,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
  * Данные тарифа
@@ -22,7 +24,13 @@ import jakarta.annotation.Generated;
 
 @Schema(name = "tariffItem", description = "Данные тарифа")
 @JsonTypeName("tariffItem")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.237390300+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
+/**
+ * DTO TariffItem.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
 public class TariffItem {
 
   private Integer id;

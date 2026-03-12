@@ -1,14 +1,14 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.UUID;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ContractDispositionType;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.DispositionStatusDTO;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
@@ -17,21 +17,26 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * CreateDispositionChangeCreditRqDTO
+ * EditDispositionCloseCreditRequest
  */
 
-@JsonTypeName("createDispositionChangeCreditRqDTO")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class CreateDispositionChangeCreditRqDTO {
+@JsonTypeName("editDispositionCloseCreditRqDTO")
+/**
+ * DTO EditDispositionCloseCreditRequest.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class EditDispositionCloseCreditRequest {
+
+  private UUID id;
 
   private String number;
 
   private Long date;
-
-  private DispositionStatusDTO status;
 
   private String kodRequest;
 
@@ -40,8 +45,6 @@ public class CreateDispositionChangeCreditRqDTO {
   private Integer contractVersion;
 
   private Long operationDate;
-
-  private String operationType;
 
   private String operationBase;
 
@@ -53,25 +56,42 @@ public class CreateDispositionChangeCreditRqDTO {
 
   private String additionalComment;
 
-  private ContractDispositionType contractDispositionType;
-
-  public CreateDispositionChangeCreditRqDTO() {
+  public EditDispositionCloseCreditRequest() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public CreateDispositionChangeCreditRqDTO(String number, Long date, UUID contractId, Integer contractVersion, Long eventOperationDate, ContractDispositionType contractDispositionType) {
+  public EditDispositionCloseCreditRequest(String number, Long date, UUID contractId, Integer contractVersion, Long eventOperationDate) {
     this.number = number;
     this.date = date;
     this.contractId = contractId;
     this.contractVersion = contractVersion;
     this.eventOperationDate = eventOperationDate;
-    this.contractDispositionType = contractDispositionType;
   }
 
-  public CreateDispositionChangeCreditRqDTO number(String number) {
+  public EditDispositionCloseCreditRequest id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @Valid 
+  @Schema(name = "id", example = "3422b448-2460-4fd2-9183-8000de6f8343", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+  public EditDispositionCloseCreditRequest number(String number) {
     this.number = number;
     return this;
   }
@@ -91,7 +111,7 @@ public class CreateDispositionChangeCreditRqDTO {
     this.number = number;
   }
 
-  public CreateDispositionChangeCreditRqDTO date(Long date) {
+  public EditDispositionCloseCreditRequest date(Long date) {
     this.date = date;
     return this;
   }
@@ -111,27 +131,7 @@ public class CreateDispositionChangeCreditRqDTO {
     this.date = date;
   }
 
-  public CreateDispositionChangeCreditRqDTO status(DispositionStatusDTO status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * Get status
-   * @return status
-  */
-  @Valid 
-  @Schema(name = "status", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("status")
-  public DispositionStatusDTO getStatus() {
-    return status;
-  }
-
-  public void setStatus(DispositionStatusDTO status) {
-    this.status = status;
-  }
-
-  public CreateDispositionChangeCreditRqDTO kodRequest(String kodRequest) {
+  public EditDispositionCloseCreditRequest kodRequest(String kodRequest) {
     this.kodRequest = kodRequest;
     return this;
   }
@@ -151,7 +151,7 @@ public class CreateDispositionChangeCreditRqDTO {
     this.kodRequest = kodRequest;
   }
 
-  public CreateDispositionChangeCreditRqDTO contractId(UUID contractId) {
+  public EditDispositionCloseCreditRequest contractId(UUID contractId) {
     this.contractId = contractId;
     return this;
   }
@@ -171,7 +171,7 @@ public class CreateDispositionChangeCreditRqDTO {
     this.contractId = contractId;
   }
 
-  public CreateDispositionChangeCreditRqDTO contractVersion(Integer contractVersion) {
+  public EditDispositionCloseCreditRequest contractVersion(Integer contractVersion) {
     this.contractVersion = contractVersion;
     return this;
   }
@@ -191,7 +191,7 @@ public class CreateDispositionChangeCreditRqDTO {
     this.contractVersion = contractVersion;
   }
 
-  public CreateDispositionChangeCreditRqDTO operationDate(Long operationDate) {
+  public EditDispositionCloseCreditRequest operationDate(Long operationDate) {
     this.operationDate = operationDate;
     return this;
   }
@@ -211,27 +211,7 @@ public class CreateDispositionChangeCreditRqDTO {
     this.operationDate = operationDate;
   }
 
-  public CreateDispositionChangeCreditRqDTO operationType(String operationType) {
-    this.operationType = operationType;
-    return this;
-  }
-
-  /**
-   * Get operationType
-   * @return operationType
-  */
-  
-  @Schema(name = "operationType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("operationType")
-  public String getOperationType() {
-    return operationType;
-  }
-
-  public void setOperationType(String operationType) {
-    this.operationType = operationType;
-  }
-
-  public CreateDispositionChangeCreditRqDTO operationBase(String operationBase) {
+  public EditDispositionCloseCreditRequest operationBase(String operationBase) {
     this.operationBase = operationBase;
     return this;
   }
@@ -251,7 +231,7 @@ public class CreateDispositionChangeCreditRqDTO {
     this.operationBase = operationBase;
   }
 
-  public CreateDispositionChangeCreditRqDTO content(String content) {
+  public EditDispositionCloseCreditRequest content(String content) {
     this.content = content;
     return this;
   }
@@ -271,7 +251,7 @@ public class CreateDispositionChangeCreditRqDTO {
     this.content = content;
   }
 
-  public CreateDispositionChangeCreditRqDTO comment(String comment) {
+  public EditDispositionCloseCreditRequest comment(String comment) {
     this.comment = comment;
     return this;
   }
@@ -291,7 +271,7 @@ public class CreateDispositionChangeCreditRqDTO {
     this.comment = comment;
   }
 
-  public CreateDispositionChangeCreditRqDTO eventOperationDate(Long eventOperationDate) {
+  public EditDispositionCloseCreditRequest eventOperationDate(Long eventOperationDate) {
     this.eventOperationDate = eventOperationDate;
     return this;
   }
@@ -311,7 +291,7 @@ public class CreateDispositionChangeCreditRqDTO {
     this.eventOperationDate = eventOperationDate;
   }
 
-  public CreateDispositionChangeCreditRqDTO additionalComment(String additionalComment) {
+  public EditDispositionCloseCreditRequest additionalComment(String additionalComment) {
     this.additionalComment = additionalComment;
     return this;
   }
@@ -331,26 +311,6 @@ public class CreateDispositionChangeCreditRqDTO {
     this.additionalComment = additionalComment;
   }
 
-  public CreateDispositionChangeCreditRqDTO contractDispositionType(ContractDispositionType contractDispositionType) {
-    this.contractDispositionType = contractDispositionType;
-    return this;
-  }
-
-  /**
-   * Get contractDispositionType
-   * @return contractDispositionType
-  */
-  @NotNull @Valid 
-  @Schema(name = "contractDispositionType", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("contractDispositionType")
-  public ContractDispositionType getContractDispositionType() {
-    return contractDispositionType;
-  }
-
-  public void setContractDispositionType(ContractDispositionType contractDispositionType) {
-    this.contractDispositionType = contractDispositionType;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -359,46 +319,42 @@ public class CreateDispositionChangeCreditRqDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateDispositionChangeCreditRqDTO createDispositionChangeCreditRqDTO = (CreateDispositionChangeCreditRqDTO) o;
-    return Objects.equals(this.number, createDispositionChangeCreditRqDTO.number) &&
-        Objects.equals(this.date, createDispositionChangeCreditRqDTO.date) &&
-        Objects.equals(this.status, createDispositionChangeCreditRqDTO.status) &&
-        Objects.equals(this.kodRequest, createDispositionChangeCreditRqDTO.kodRequest) &&
-        Objects.equals(this.contractId, createDispositionChangeCreditRqDTO.contractId) &&
-        Objects.equals(this.contractVersion, createDispositionChangeCreditRqDTO.contractVersion) &&
-        Objects.equals(this.operationDate, createDispositionChangeCreditRqDTO.operationDate) &&
-        Objects.equals(this.operationType, createDispositionChangeCreditRqDTO.operationType) &&
-        Objects.equals(this.operationBase, createDispositionChangeCreditRqDTO.operationBase) &&
-        Objects.equals(this.content, createDispositionChangeCreditRqDTO.content) &&
-        Objects.equals(this.comment, createDispositionChangeCreditRqDTO.comment) &&
-        Objects.equals(this.eventOperationDate, createDispositionChangeCreditRqDTO.eventOperationDate) &&
-        Objects.equals(this.additionalComment, createDispositionChangeCreditRqDTO.additionalComment) &&
-        Objects.equals(this.contractDispositionType, createDispositionChangeCreditRqDTO.contractDispositionType);
+    EditDispositionCloseCreditRequest editDispositionCloseCreditRqDTO = (EditDispositionCloseCreditRequest) o;
+    return Objects.equals(this.id, editDispositionCloseCreditRqDTO.id) &&
+        Objects.equals(this.number, editDispositionCloseCreditRqDTO.number) &&
+        Objects.equals(this.date, editDispositionCloseCreditRqDTO.date) &&
+        Objects.equals(this.kodRequest, editDispositionCloseCreditRqDTO.kodRequest) &&
+        Objects.equals(this.contractId, editDispositionCloseCreditRqDTO.contractId) &&
+        Objects.equals(this.contractVersion, editDispositionCloseCreditRqDTO.contractVersion) &&
+        Objects.equals(this.operationDate, editDispositionCloseCreditRqDTO.operationDate) &&
+        Objects.equals(this.operationBase, editDispositionCloseCreditRqDTO.operationBase) &&
+        Objects.equals(this.content, editDispositionCloseCreditRqDTO.content) &&
+        Objects.equals(this.comment, editDispositionCloseCreditRqDTO.comment) &&
+        Objects.equals(this.eventOperationDate, editDispositionCloseCreditRqDTO.eventOperationDate) &&
+        Objects.equals(this.additionalComment, editDispositionCloseCreditRqDTO.additionalComment);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(number, date, status, kodRequest, contractId, contractVersion, operationDate, operationType, operationBase, content, comment, eventOperationDate, additionalComment, contractDispositionType);
+    return Objects.hash(id, number, date, kodRequest, contractId, contractVersion, operationDate, operationBase, content, comment, eventOperationDate, additionalComment);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateDispositionChangeCreditRqDTO {\n");
+    sb.append("class EditDispositionCloseCreditRequest {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    kodRequest: ").append(toIndentedString(kodRequest)).append("\n");
     sb.append("    contractId: ").append(toIndentedString(contractId)).append("\n");
     sb.append("    contractVersion: ").append(toIndentedString(contractVersion)).append("\n");
     sb.append("    operationDate: ").append(toIndentedString(operationDate)).append("\n");
-    sb.append("    operationType: ").append(toIndentedString(operationType)).append("\n");
     sb.append("    operationBase: ").append(toIndentedString(operationBase)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    eventOperationDate: ").append(toIndentedString(eventOperationDate)).append("\n");
     sb.append("    additionalComment: ").append(toIndentedString(additionalComment)).append("\n");
-    sb.append("    contractDispositionType: ").append(toIndentedString(contractDispositionType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

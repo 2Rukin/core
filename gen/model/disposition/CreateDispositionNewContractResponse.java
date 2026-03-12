@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -13,14 +16,19 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * CreateDispositionNewContractRsDTO
+ * CreateDispositionNewContractResponse
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class CreateDispositionNewContractRsDTO {
+/**
+ * DTO CreateDispositionNewContractResponse.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class CreateDispositionNewContractResponse {
 
   private UUID id;
 
@@ -30,7 +38,7 @@ public class CreateDispositionNewContractRsDTO {
 
   private Long date;
 
-  public CreateDispositionNewContractRsDTO id(UUID id) {
+  public CreateDispositionNewContractResponse id(UUID id) {
     this.id = id;
     return this;
   }
@@ -50,7 +58,7 @@ public class CreateDispositionNewContractRsDTO {
     this.id = id;
   }
 
-  public CreateDispositionNewContractRsDTO type(String type) {
+  public CreateDispositionNewContractResponse type(String type) {
     this.type = type;
     return this;
   }
@@ -70,7 +78,7 @@ public class CreateDispositionNewContractRsDTO {
     this.type = type;
   }
 
-  public CreateDispositionNewContractRsDTO number(String number) {
+  public CreateDispositionNewContractResponse number(String number) {
     this.number = number;
     return this;
   }
@@ -90,7 +98,7 @@ public class CreateDispositionNewContractRsDTO {
     this.number = number;
   }
 
-  public CreateDispositionNewContractRsDTO date(Long date) {
+  public CreateDispositionNewContractResponse date(Long date) {
     this.date = date;
     return this;
   }
@@ -118,7 +126,7 @@ public class CreateDispositionNewContractRsDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateDispositionNewContractRsDTO createDispositionNewContractRsDTO = (CreateDispositionNewContractRsDTO) o;
+    CreateDispositionNewContractResponse createDispositionNewContractRsDTO = (CreateDispositionNewContractResponse) o;
     return Objects.equals(this.id, createDispositionNewContractRsDTO.id) &&
         Objects.equals(this.type, createDispositionNewContractRsDTO.type) &&
         Objects.equals(this.number, createDispositionNewContractRsDTO.number) &&
@@ -133,7 +141,7 @@ public class CreateDispositionNewContractRsDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateDispositionNewContractRsDTO {\n");
+    sb.append("class CreateDispositionNewContractResponse {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");

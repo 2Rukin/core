@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.contract;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -39,14 +42,19 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
  * CreateCreditRequest
  */
 
 @JsonTypeName("createCreditRequest")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:01.318520700+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
+/**
+ * DTO CreateCreditRequest.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
 public class CreateCreditRequest {
 
   private String uid;

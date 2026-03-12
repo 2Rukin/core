@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.tariff;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -13,15 +16,20 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * ErrorRsDTO
+ * ErrorResponse
  */
 
 @JsonTypeName("errorRsDTO")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.237390300+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class ErrorRsDTO {
+/**
+ * DTO ErrorResponse.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class ErrorResponse {
 
   private Integer code;
 
@@ -29,20 +37,20 @@ public class ErrorRsDTO {
 
   private Long timestamp;
 
-  public ErrorRsDTO() {
+  public ErrorResponse() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public ErrorRsDTO(Integer code, String description, Long timestamp) {
+  public ErrorResponse(Integer code, String description, Long timestamp) {
     this.code = code;
     this.description = description;
     this.timestamp = timestamp;
   }
 
-  public ErrorRsDTO code(Integer code) {
+  public ErrorResponse code(Integer code) {
     this.code = code;
     return this;
   }
@@ -62,7 +70,7 @@ public class ErrorRsDTO {
     this.code = code;
   }
 
-  public ErrorRsDTO description(String description) {
+  public ErrorResponse description(String description) {
     this.description = description;
     return this;
   }
@@ -82,7 +90,7 @@ public class ErrorRsDTO {
     this.description = description;
   }
 
-  public ErrorRsDTO timestamp(Long timestamp) {
+  public ErrorResponse timestamp(Long timestamp) {
     this.timestamp = timestamp;
     return this;
   }
@@ -110,7 +118,7 @@ public class ErrorRsDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorRsDTO errorRsDTO = (ErrorRsDTO) o;
+    ErrorResponse errorRsDTO = (ErrorResponse) o;
     return Objects.equals(this.code, errorRsDTO.code) &&
         Objects.equals(this.description, errorRsDTO.description) &&
         Objects.equals(this.timestamp, errorRsDTO.timestamp);
@@ -124,7 +132,7 @@ public class ErrorRsDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorRsDTO {\n");
+    sb.append("class ErrorResponse {\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");

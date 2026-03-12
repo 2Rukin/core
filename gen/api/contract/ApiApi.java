@@ -24,10 +24,8 @@ import ru.domrf.elka.cdrd.contract_service.gen.model.contract.PageGetContracts;
 import ru.domrf.elka.cdrd.contract_service.gen.model.contract.ShortContractInfo;
 import ru.domrf.elka.cdrd.contract_service.gen.model.contract.ShortContractInfoWithClient;
 import java.util.UUID;
-    import io.swagger.v3.oas.annotations.ExternalDocumentation;
     import io.swagger.v3.oas.annotations.Operation;
     import io.swagger.v3.oas.annotations.Parameter;
-    import io.swagger.v3.oas.annotations.Parameters;
     import io.swagger.v3.oas.annotations.media.ArraySchema;
     import io.swagger.v3.oas.annotations.media.Content;
     import io.swagger.v3.oas.annotations.media.Schema;
@@ -38,22 +36,13 @@ import java.util.UUID;
     import org.springframework.http.ResponseEntity;
     import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
     import jakarta.validation.Valid;
     import jakarta.validation.constraints.*;
-import java.util.List;
-import java.util.Map;
-import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:01.318520700+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
     @Validated
     @Tag(name = "Credits", description = "Методы работы с кредитными договорами")
     public interface ApiApi {
-
-                default ApiApiDelegate getDelegate() {
-                return new ApiApiDelegate() {};
-                }
 
             /**
             * POST /api/v1/contracts/credit : Метод создания нового кредитного договора
@@ -101,11 +90,7 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<ShortContractInfo> createCredit(
-        @Parameter(name = "CreateCreditRequest", description = "", required = true) @Valid @RequestBody CreateCreditRequest createCreditRequest
-            ) {
-            return getDelegate().createCredit(createCreditRequest);
-            }
+        ResponseEntity<ShortContractInfo> createCredit(@Parameter(name = "CreateCreditRequest", description = "", required = true) @Valid @RequestBody CreateCreditRequest createCreditRequest);
 
 
             /**
@@ -154,11 +139,7 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<ShortContractInfo> createCreditVersion(
-        @Parameter(name = "CreateCreditVersionRequest", description = "", required = true) @Valid @RequestBody CreateCreditVersionRequest createCreditVersionRequest
-            ) {
-            return getDelegate().createCreditVersion(createCreditVersionRequest);
-            }
+        ResponseEntity<ShortContractInfo> createCreditVersion(@Parameter(name = "CreateCreditVersionRequest", description = "", required = true) @Valid @RequestBody CreateCreditVersionRequest createCreditVersionRequest);
 
 
             /**
@@ -209,12 +190,8 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<Void> deleteCreditByIdAndVersion(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber
-            ) {
-            return getDelegate().deleteCreditByIdAndVersion(id, versionNumber);
-            }
+        ResponseEntity<Void> deleteCreditByIdAndVersion(@Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
+        @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber);
 
 
             /**
@@ -267,13 +244,9 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<Void> editContractStatusCreditByIdAndVersion(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
+        ResponseEntity<Void> editContractStatusCreditByIdAndVersion(@Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
         @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber,
-        @Parameter(name = "EditContractStatusCreditRequest", description = "", required = true) @Valid @RequestBody EditContractStatusCreditRequest editContractStatusCreditRequest
-            ) {
-            return getDelegate().editContractStatusCreditByIdAndVersion(id, versionNumber, editContractStatusCreditRequest);
-            }
+        @Parameter(name = "EditContractStatusCreditRequest", description = "", required = true) @Valid @RequestBody EditContractStatusCreditRequest editContractStatusCreditRequest);
 
 
             /**
@@ -326,13 +299,9 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<Void> editCreditByIdAndVersion(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
+        ResponseEntity<Void> editCreditByIdAndVersion(@Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
         @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber,
-        @Parameter(name = "EditCreditRequest", description = "", required = true) @Valid @RequestBody EditCreditRequest editCreditRequest
-            ) {
-            return getDelegate().editCreditByIdAndVersion(id, versionNumber, editCreditRequest);
-            }
+        @Parameter(name = "EditCreditRequest", description = "", required = true) @Valid @RequestBody EditCreditRequest editCreditRequest);
 
 
             /**
@@ -385,13 +354,9 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<Void> editDispositionTypeCreditByIdAndVersion(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
+        ResponseEntity<Void> editDispositionTypeCreditByIdAndVersion(@Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
         @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber,
-        @Parameter(name = "EditDispositionTypeCreditByIdAndVersionRequest", description = "") @Valid @RequestBody(required = false) EditDispositionTypeCreditByIdAndVersionRequest editDispositionTypeCreditByIdAndVersionRequest
-            ) {
-            return getDelegate().editDispositionTypeCreditByIdAndVersion(id, versionNumber, editDispositionTypeCreditByIdAndVersionRequest);
-            }
+        @Parameter(name = "EditDispositionTypeCreditByIdAndVersionRequest", description = "") @Valid @RequestBody(required = false) EditDispositionTypeCreditByIdAndVersionRequest editDispositionTypeCreditByIdAndVersionRequest);
 
 
             /**
@@ -444,13 +409,9 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<Void> editEventAndAdditionalByIdAndVersion(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
+        ResponseEntity<Void> editEventAndAdditionalByIdAndVersion(@Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
         @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber,
-        @Parameter(name = "EditEventAndAdditional", description = "", required = true) @Valid @RequestBody EditEventAndAdditional editEventAndAdditional
-            ) {
-            return getDelegate().editEventAndAdditionalByIdAndVersion(id, versionNumber, editEventAndAdditional);
-            }
+        @Parameter(name = "EditEventAndAdditional", description = "", required = true) @Valid @RequestBody EditEventAndAdditional editEventAndAdditional);
 
 
             /**
@@ -503,13 +464,9 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<Void> editVersionStatusCreditByIdAndVersion(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
+        ResponseEntity<Void> editVersionStatusCreditByIdAndVersion(@Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
         @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber,
-        @Parameter(name = "EditVersionStatusCreditRequest", description = "", required = true) @Valid @RequestBody EditVersionStatusCreditRequest editVersionStatusCreditRequest
-            ) {
-            return getDelegate().editVersionStatusCreditByIdAndVersion(id, versionNumber, editVersionStatusCreditRequest);
-            }
+        @Parameter(name = "EditVersionStatusCreditRequest", description = "", required = true) @Valid @RequestBody EditVersionStatusCreditRequest editVersionStatusCreditRequest);
 
 
             /**
@@ -558,11 +515,7 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<PageFindClients> findClient(
-        @Parameter(name = "FindClientsPostRequest", description = "", required = true) @Valid @RequestBody FindClientsPostRequest findClientsPostRequest
-            ) {
-            return getDelegate().findClient(findClientsPostRequest);
-            }
+        ResponseEntity<PageFindClients> findClient(@Parameter(name = "FindClientsPostRequest", description = "", required = true) @Valid @RequestBody FindClientsPostRequest findClientsPostRequest);
 
 
             /**
@@ -611,11 +564,7 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<PageGetContracts> getAllContracts(
-        @Parameter(name = "GetAllContractsRequest", description = "", required = true) @Valid @RequestBody GetAllContractsRequest getAllContractsRequest
-            ) {
-            return getDelegate().getAllContracts(getAllContractsRequest);
-            }
+        ResponseEntity<PageGetContracts> getAllContracts(@Parameter(name = "GetAllContractsRequest", description = "", required = true) @Valid @RequestBody GetAllContractsRequest getAllContractsRequest);
 
 
             /**
@@ -663,11 +612,7 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<PageGetContractVersions> getContractAllVersions(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id
-            ) {
-            return getDelegate().getContractAllVersions(id);
-            }
+        ResponseEntity<PageGetContractVersions> getContractAllVersions(@Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id);
 
 
             /**
@@ -720,12 +665,8 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<ShortContractInfoWithClient> getContractShortByIdAndVersion(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber
-            ) {
-            return getDelegate().getContractShortByIdAndVersion(id, versionNumber);
-            }
+        ResponseEntity<ShortContractInfoWithClient> getContractShortByIdAndVersion(@Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
+        @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber);
 
 
             /**
@@ -777,11 +718,7 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<ShortContractInfoWithClient> getContractShortLastVersionById(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id
-            ) {
-            return getDelegate().getContractShortLastVersionById(id);
-            }
+        ResponseEntity<ShortContractInfoWithClient> getContractShortLastVersionById(@Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id);
 
 
             /**
@@ -834,12 +771,8 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<GetCreditByIdResponse> getCreditDetailsByIdAndVersion(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber
-            ) {
-            return getDelegate().getCreditDetailsByIdAndVersion(id, versionNumber);
-            }
+        ResponseEntity<GetCreditByIdResponse> getCreditDetailsByIdAndVersion(@Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
+        @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber);
 
 
             /**
@@ -892,12 +825,8 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<String> getCreditVersionDifference(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "versionNumber", description = "Номер версии договора", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber
-            ) {
-            return getDelegate().getCreditVersionDifference(id, versionNumber);
-            }
+        ResponseEntity<String> getCreditVersionDifference(@Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
+        @Parameter(name = "versionNumber", description = "Номер версии договора", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber);
 
 
             /**
@@ -950,12 +879,8 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<GetCreditByIdResponse> getCreditVersionDifferenceForPrinter(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "versionNumber", description = "Номер версии договора", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber
-            ) {
-            return getDelegate().getCreditVersionDifferenceForPrinter(id, versionNumber);
-            }
+        ResponseEntity<GetCreditByIdResponse> getCreditVersionDifferenceForPrinter(@Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
+        @Parameter(name = "versionNumber", description = "Номер версии договора", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber);
 
 
             /**
@@ -1001,12 +926,6 @@ import jakarta.annotation.Generated;
             )
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
-        
-        default ResponseEntity<List<GetDictionaryPurposeCreditInner>> getDictionaryPurpose(
-        
-            ) {
-            return getDelegate().getDictionaryPurpose();
-            }
 
 
             /**
@@ -1052,12 +971,6 @@ import jakarta.annotation.Generated;
             )
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
-        
-        default ResponseEntity<List<GetDictionaryPurposeCreditInner>> getDictionaryPurposeAfina(
-        
-            ) {
-            return getDelegate().getDictionaryPurposeAfina();
-            }
 
 
             /**
@@ -1108,12 +1021,8 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<Void> rollbackStatus(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber
-            ) {
-            return getDelegate().rollbackStatus(id, versionNumber);
-            }
+        ResponseEntity<Void> rollbackStatus(@Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
+        @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber);
 
 
             /**
@@ -1160,12 +1069,6 @@ import jakarta.annotation.Generated;
             consumes = { "application/json" }
             )
                 @ru.domrf.elka.lib.security_starter.annotation.CheckServiceToken
-        
-        default ResponseEntity<ShortContractInfo> createCreditTech(
-        @Parameter(name = "CreateCreditRequest", description = "", required = true) @Valid @RequestBody CreateCreditRequest createCreditRequest
-            ) {
-            return getDelegate().createCredit(createCreditRequest);
-            }
             /**
             * PUT /api/v1/contracts/credit/{id}/{versionNumber}/status : Метод обновления СТАТУСА КОНТЕЙНЕРА (версия&#x3D;0) кредитного договора
                 * Метод позволяет обновить СТАТУС контейнера (версия&#x3D;0) и произвести сопровождающие действия над КД по businessID и versionNumber
@@ -1214,14 +1117,6 @@ import jakarta.annotation.Generated;
             consumes = { "application/json" }
             )
                 @ru.domrf.elka.lib.security_starter.annotation.CheckServiceToken
-        
-        default ResponseEntity<Void> editContractStatusCreditByIdAndVersionTech(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber,
-        @Parameter(name = "EditContractStatusCreditRequest", description = "", required = true) @Valid @RequestBody EditContractStatusCreditRequest editContractStatusCreditRequest
-            ) {
-            return getDelegate().editContractStatusCreditByIdAndVersion(id, versionNumber, editContractStatusCreditRequest);
-            }
             /**
             * PUT /api/v1/contracts/credit/{id}/{versionNumber}/disposition-type-changer : Метод смены типа распоряжения на форме кредитного договора ВЕРСИИ (версия&gt;0) кредитного договора
                 * Метод позволяет обновить тип распоряжения на форме кредитного договора ВЕРСИИ (версия&gt;0) кредитного договора
@@ -1270,14 +1165,6 @@ import jakarta.annotation.Generated;
             consumes = { "application/json" }
             )
                 @ru.domrf.elka.lib.security_starter.annotation.CheckServiceToken
-        
-        default ResponseEntity<Void> editDispositionTypeCreditByIdAndVersionTech(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber,
-        @Parameter(name = "EditDispositionTypeCreditByIdAndVersionRequest", description = "") @Valid @RequestBody(required = false) EditDispositionTypeCreditByIdAndVersionRequest editDispositionTypeCreditByIdAndVersionRequest
-            ) {
-            return getDelegate().editDispositionTypeCreditByIdAndVersion(id, versionNumber, editDispositionTypeCreditByIdAndVersionRequest);
-            }
             /**
             * PUT /api/v1/contracts/credit/{id}/{versionNumber}/newFields : Метод обновления полей \&quot;Дата проведение операции\&quot; и \&quot;Справочно\&quot; кредитного договора
                 * Метод позволяет обновить поля \&quot;Дата проведение операции\&quot; и \&quot;Справочно\&quot; по businessID и versionNumber
@@ -1326,14 +1213,6 @@ import jakarta.annotation.Generated;
             consumes = { "application/json" }
             )
                 @ru.domrf.elka.lib.security_starter.annotation.CheckServiceToken
-        
-        default ResponseEntity<Void> editEventAndAdditionalByIdAndVersionTech(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber,
-        @Parameter(name = "EditEventAndAdditional", description = "", required = true) @Valid @RequestBody EditEventAndAdditional editEventAndAdditional
-            ) {
-            return getDelegate().editEventAndAdditionalByIdAndVersion(id, versionNumber, editEventAndAdditional);
-            }
             /**
             * PUT /api/v1/contracts/credit/{id}/{versionNumber}/version-status : Метод обновления СТАТУСА ВЕРСИИ (версия&gt;0) кредитного договора
                 * Метод позволяет обновить СТАТУС версии (версия&gt;0) и произвести сопровождающие действия над КД по businessID и versionNumber
@@ -1382,14 +1261,6 @@ import jakarta.annotation.Generated;
             consumes = { "application/json" }
             )
                 @ru.domrf.elka.lib.security_starter.annotation.CheckServiceToken
-        
-        default ResponseEntity<Void> editVersionStatusCreditByIdAndVersionTech(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber,
-        @Parameter(name = "EditVersionStatusCreditRequest", description = "", required = true) @Valid @RequestBody EditVersionStatusCreditRequest editVersionStatusCreditRequest
-            ) {
-            return getDelegate().editVersionStatusCreditByIdAndVersion(id, versionNumber, editVersionStatusCreditRequest);
-            }
             /**
             * GET /api/v1/contracts/short/{id}/{versionNumber} : Метод получения короткой информации по любому договору
                 * Метод позволяет получить короткую информацию по договору по его id (тип, номер, дата, id клиента)
@@ -1438,13 +1309,6 @@ import jakarta.annotation.Generated;
             produces = { "application/json" }
             )
                 @ru.domrf.elka.lib.security_starter.annotation.CheckServiceToken
-        
-        default ResponseEntity<ShortContractInfoWithClient> getContractShortByIdAndVersionTech(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber
-            ) {
-            return getDelegate().getContractShortByIdAndVersion(id, versionNumber);
-            }
             /**
             * GET /api/v1/contracts/credit/{id}/{versionNumber} : Метод получения детальной информации по Кредитному договору
                 * Метод позволяет получить детальную информацию по businessID и versionNumber
@@ -1493,13 +1357,6 @@ import jakarta.annotation.Generated;
             produces = { "application/json" }
             )
                 @ru.domrf.elka.lib.security_starter.annotation.CheckServiceToken
-        
-        default ResponseEntity<GetCreditByIdResponse> getCreditDetailsByIdAndVersionTech(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "versionNumber", description = "Номер версии (конкретного договора)", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber
-            ) {
-            return getDelegate().getCreditDetailsByIdAndVersion(id, versionNumber);
-            }
             /**
             * GET /api/v1/contract/credit/difference/{id}/{versionNumber} : Метод получения JSON-объекта, содержащего разницу между последней и предпоследней версиями кредитного договора
                 * Метод позволяет получить полный перечень всех полей объекта \&quot;Кредитный договор\&quot;, которые были изменены в  последней версии по сравнению с предпоследней (структура, идентичная полной информации по договору) 
@@ -1548,13 +1405,6 @@ import jakarta.annotation.Generated;
             produces = { "application/json" }
             )
                 @ru.domrf.elka.lib.security_starter.annotation.CheckServiceToken
-        
-        default ResponseEntity<String> getCreditVersionDifferenceTech(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "versionNumber", description = "Номер версии договора", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber
-            ) {
-            return getDelegate().getCreditVersionDifference(id, versionNumber);
-            }
             /**
             * GET /api/v1/contract/credit/difference-printer/{id}/{versionNumber} : Метод получения JSON-объекта, содержащего разницу между последней и предпоследней версиями кредитного договора
                 * Метод позволяет получить полный перечень всех полей объекта \&quot;Кредитный договор\&quot;, которые были изменены в  последней версии по сравнению с предпоследней (структура, идентичная полной информации по договору) для печати 
@@ -1603,13 +1453,6 @@ import jakarta.annotation.Generated;
             produces = { "application/json" }
             )
                 @ru.domrf.elka.lib.security_starter.annotation.CheckServiceToken
-        
-        default ResponseEntity<GetCreditByIdResponse> getCreditVersionDifferenceForPrinterTech(
-        @Parameter(name = "id", description = "Бизнес-Идентификатор договора (UUID)", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "versionNumber", description = "Номер версии договора", required = true, in = ParameterIn.PATH) @PathVariable("versionNumber") Integer versionNumber
-            ) {
-            return getDelegate().getCreditVersionDifferenceForPrinter(id, versionNumber);
-            }
 
 
         }

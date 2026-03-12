@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,14 +18,19 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * EditDispositionNewCreditRqDTO
+ * EditDispositionNewCreditRequest
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class EditDispositionNewCreditRqDTO {
+/**
+ * DTO EditDispositionNewCreditRequest.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class EditDispositionNewCreditRequest {
 
   private DispositionTypeDTO type;
 
@@ -44,20 +52,20 @@ public class EditDispositionNewCreditRqDTO {
 
   private String comment;
 
-  public EditDispositionNewCreditRqDTO() {
+  public EditDispositionNewCreditRequest() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public EditDispositionNewCreditRqDTO(String number, Long date, UUID contractId) {
+  public EditDispositionNewCreditRequest(String number, Long date, UUID contractId) {
     this.number = number;
     this.date = date;
     this.contractId = contractId;
   }
 
-  public EditDispositionNewCreditRqDTO type(DispositionTypeDTO type) {
+  public EditDispositionNewCreditRequest type(DispositionTypeDTO type) {
     this.type = type;
     return this;
   }
@@ -77,7 +85,7 @@ public class EditDispositionNewCreditRqDTO {
     this.type = type;
   }
 
-  public EditDispositionNewCreditRqDTO number(String number) {
+  public EditDispositionNewCreditRequest number(String number) {
     this.number = number;
     return this;
   }
@@ -97,7 +105,7 @@ public class EditDispositionNewCreditRqDTO {
     this.number = number;
   }
 
-  public EditDispositionNewCreditRqDTO date(Long date) {
+  public EditDispositionNewCreditRequest date(Long date) {
     this.date = date;
     return this;
   }
@@ -117,7 +125,7 @@ public class EditDispositionNewCreditRqDTO {
     this.date = date;
   }
 
-  public EditDispositionNewCreditRqDTO kodRequest(String kodRequest) {
+  public EditDispositionNewCreditRequest kodRequest(String kodRequest) {
     this.kodRequest = kodRequest;
     return this;
   }
@@ -137,7 +145,7 @@ public class EditDispositionNewCreditRqDTO {
     this.kodRequest = kodRequest;
   }
 
-  public EditDispositionNewCreditRqDTO reason(String reason) {
+  public EditDispositionNewCreditRequest reason(String reason) {
     this.reason = reason;
     return this;
   }
@@ -157,7 +165,7 @@ public class EditDispositionNewCreditRqDTO {
     this.reason = reason;
   }
 
-  public EditDispositionNewCreditRqDTO contractId(UUID contractId) {
+  public EditDispositionNewCreditRequest contractId(UUID contractId) {
     this.contractId = contractId;
     return this;
   }
@@ -177,7 +185,7 @@ public class EditDispositionNewCreditRqDTO {
     this.contractId = contractId;
   }
 
-  public EditDispositionNewCreditRqDTO contractVersion(Integer contractVersion) {
+  public EditDispositionNewCreditRequest contractVersion(Integer contractVersion) {
     this.contractVersion = contractVersion;
     return this;
   }
@@ -197,7 +205,7 @@ public class EditDispositionNewCreditRqDTO {
     this.contractVersion = contractVersion;
   }
 
-  public EditDispositionNewCreditRqDTO operationDate(Long operationDate) {
+  public EditDispositionNewCreditRequest operationDate(Long operationDate) {
     this.operationDate = operationDate;
     return this;
   }
@@ -217,7 +225,7 @@ public class EditDispositionNewCreditRqDTO {
     this.operationDate = operationDate;
   }
 
-  public EditDispositionNewCreditRqDTO operationBase(String operationBase) {
+  public EditDispositionNewCreditRequest operationBase(String operationBase) {
     this.operationBase = operationBase;
     return this;
   }
@@ -237,7 +245,7 @@ public class EditDispositionNewCreditRqDTO {
     this.operationBase = operationBase;
   }
 
-  public EditDispositionNewCreditRqDTO comment(String comment) {
+  public EditDispositionNewCreditRequest comment(String comment) {
     this.comment = comment;
     return this;
   }
@@ -265,7 +273,7 @@ public class EditDispositionNewCreditRqDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EditDispositionNewCreditRqDTO editDispositionNewCreditRqDTO = (EditDispositionNewCreditRqDTO) o;
+    EditDispositionNewCreditRequest editDispositionNewCreditRqDTO = (EditDispositionNewCreditRequest) o;
     return Objects.equals(this.type, editDispositionNewCreditRqDTO.type) &&
         Objects.equals(this.number, editDispositionNewCreditRqDTO.number) &&
         Objects.equals(this.date, editDispositionNewCreditRqDTO.date) &&
@@ -286,7 +294,7 @@ public class EditDispositionNewCreditRqDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EditDispositionNewCreditRqDTO {\n");
+    sb.append("class EditDispositionNewCreditRequest {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");

@@ -1,10 +1,10 @@
 package ru.domrf.elka.cdrd.contract_service.gen.api.disposition;
 
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.CreateDispositionCloseCreditRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditDispositionCloseCreditRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditStatusDispositionCloseCreditRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetDispositionCloseCreditByIdRsDTO;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.CreateDispositionCloseCreditRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditDispositionCloseCreditRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditStatusDispositionCloseCreditRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetDispositionCloseCreditByIdResponse;
 import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ShortDispositionInfo;
 import java.util.UUID;
 

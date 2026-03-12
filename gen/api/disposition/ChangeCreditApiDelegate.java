@@ -1,10 +1,10 @@
 package ru.domrf.elka.cdrd.contract_service.gen.api.disposition;
 
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.CreateDispositionChangeCreditRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditDispositionChangeCreditRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditStatusDispositionChangeCreditRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetDispositionChangeCreditByIdRsDTO;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.CreateDispositionChangeCreditRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditDispositionChangeCreditRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditStatusDispositionChangeCreditRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetDispositionChangeCreditByIdResponse;
 import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ShortDispositionInfo;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
@@ -43,7 +43,7 @@ public interface ChangeCreditApiDelegate {
      *         or Internal Server Error Недоступность сервера Иные неучтенные ошибки (status code 500)
      * @see ChangeCreditApi#createDispositionChangeCredit
      */
-    default ResponseEntity<ShortDispositionInfo> createDispositionChangeCredit(CreateDispositionChangeCreditRqDTO createDispositionChangeCreditRqDTO) {
+    default ResponseEntity<ShortDispositionInfo> createDispositionChangeCredit(CreateDispositionChangeCreditRequest createDispositionChangeCreditRqDTO) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
@@ -137,7 +137,7 @@ public interface ChangeCreditApiDelegate {
      * @see ChangeCreditApi#editDispositionChangeCredit
      */
     default ResponseEntity<Void> editDispositionChangeCredit(UUID id,
-        EditDispositionChangeCreditRqDTO editDispositionChangeCreditRqDTO) {
+        EditDispositionChangeCreditRequest editDispositionChangeCreditRqDTO) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
@@ -185,7 +185,7 @@ public interface ChangeCreditApiDelegate {
      * @see ChangeCreditApi#editStatusDispositionChangeCredit
      */
     default ResponseEntity<Void> editStatusDispositionChangeCredit(UUID id,
-        EditStatusDispositionChangeCreditRqDTO editStatusDispositionChangeCreditRqDTO) {
+        EditStatusDispositionChangeCreditRequest editStatusDispositionChangeCreditRqDTO) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
@@ -231,7 +231,7 @@ public interface ChangeCreditApiDelegate {
      *         or Internal Server Error  Недоступность сервера  Иные неучтенные ошибки (status code 500)
      * @see ChangeCreditApi#getDispositionChangeCreditDetailsById
      */
-    default ResponseEntity<GetDispositionChangeCreditByIdRsDTO> getDispositionChangeCreditDetailsById(UUID id) {
+    default ResponseEntity<GetDispositionChangeCreditByIdResponse> getDispositionChangeCreditDetailsById(UUID id) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {

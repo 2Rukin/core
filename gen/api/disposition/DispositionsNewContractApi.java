@@ -6,17 +6,15 @@
 */
 package ru.domrf.elka.cdrd.contract_service.gen.api.disposition;
 
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.CreateDispositionNewContractRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.CreateDispositionNewContractRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditDispositionNewCreditRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditStatusDispositionNewCreditRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetDispositionNewContractByIdRsDTO;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.CreateDispositionNewContractRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.CreateDispositionNewContractResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditDispositionNewCreditRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditStatusDispositionNewCreditRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetDispositionNewContractByIdResponse;
 import java.util.UUID;
-    import io.swagger.v3.oas.annotations.ExternalDocumentation;
     import io.swagger.v3.oas.annotations.Operation;
     import io.swagger.v3.oas.annotations.Parameter;
-    import io.swagger.v3.oas.annotations.Parameters;
     import io.swagger.v3.oas.annotations.media.ArraySchema;
     import io.swagger.v3.oas.annotations.media.Content;
     import io.swagger.v3.oas.annotations.media.Schema;
@@ -27,22 +25,13 @@ import java.util.UUID;
     import org.springframework.http.ResponseEntity;
     import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
     import jakarta.validation.Valid;
     import jakarta.validation.constraints.*;
-import java.util.List;
-import java.util.Map;
-import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
     @Validated
     @Tag(name = "DispositionsNewContract", description = "Методы работы с распоряжениями на постановку на учет нового договора")
     public interface DispositionsNewContractApi {
-
-                default DispositionsNewContractApiDelegate getDelegate() {
-                return new DispositionsNewContractApiDelegate() {};
-                }
 
             /**
             * POST /api/v1/dispositions/new-credit : Метод создания распоряжения
@@ -60,17 +49,17 @@ import jakarta.annotation.Generated;
                     tags = { "DispositionsNewContract" },
                 responses = {
                     @ApiResponse(responseCode = "201", description = "Операция успешно выполнена. Сущность создана.", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = CreateDispositionNewContractRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = CreateDispositionNewContractResponse.class))
                     }),
                     @ApiResponse(responseCode = "400", description = "Bad request. Ошибка валидации. Входные параметры не соответствуют требованиям/условиям.", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "401", description = "Доступ запрещен.", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "403", description = "Доступ запрещен. Недостаточно прав."),
                     @ApiResponse(responseCode = "500", description = "Произошла непредвиденная ошибка.", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     })
                 },
                 security = {
@@ -86,11 +75,7 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<CreateDispositionNewContractRsDTO> createDispositionNewContract(
-        @Parameter(name = "CreateDispositionNewContractRqDTO", description = "", required = true) @Valid @RequestBody CreateDispositionNewContractRqDTO createDispositionNewContractRqDTO
-            ) {
-            return getDelegate().createDispositionNewContract(createDispositionNewContractRqDTO);
-            }
+        ResponseEntity<CreateDispositionNewContractResponse> createDispositionNewContract(@Parameter(name = "CreateDispositionNewContractRequest", description = "", required = true) @Valid @RequestBody CreateDispositionNewContractRequest createDispositionNewContractRqDTO);
 
 
             /**
@@ -111,19 +96,19 @@ import jakarta.annotation.Generated;
                 responses = {
                     @ApiResponse(responseCode = "200", description = "ОК  Распоряжение ПнУКД удалено."),
                     @ApiResponse(responseCode = "400", description = "Bad request  Ошибка валидации  Входные параметры не соответствуют требованиям/условиям  Некорректный синтаксис запроса", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "401", description = "Unauthorized  Не передан токен авторизации", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "403", description = "Forbidden  Отсутствуют права на выполнение операции", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "404", description = "Not Found  Распоряжение не найдено", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "500", description = "Internal Server Error  Недоступность сервера  Иные неучтенные ошибки", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     })
                 },
                 security = {
@@ -138,11 +123,7 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<Void> deleteDispositionNewCreditDetailsById(
-        @Parameter(name = "id", description = "Идентификатор распоряжения businessId", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id
-            ) {
-            return getDelegate().deleteDispositionNewCreditDetailsById(id);
-            }
+        ResponseEntity<Void> deleteDispositionNewCreditDetailsById(@Parameter(name = "id", description = "Идентификатор распоряжения businessId", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id);
 
 
             /**
@@ -165,22 +146,22 @@ import jakarta.annotation.Generated;
                 responses = {
                     @ApiResponse(responseCode = "200", description = "ОК  Успешное выполнение операции."),
                     @ApiResponse(responseCode = "400", description = "Bad request  Ошибка валидации  Входные параметры не соответствуют требованиям/условиям  Некорректный синтаксис запроса", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "401", description = "Unauthorized  Не передан токен авторизации", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "403", description = "Forbidden  Отсутствуют права на выполнение операции", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "404", description = "Not Found  Распоряжение не найдено", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "409", description = "Conflict  Некорректный статус распоряжения", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "500", description = "Internal Server Error  Недоступность сервера  Иные неучтенные ошибки", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     })
                 },
                 security = {
@@ -196,12 +177,8 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<Void> editDispositionNewCredit(
-        @Parameter(name = "id", description = "Идентификатор распоряжения businessId", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "EditDispositionNewCreditRqDTO", description = "", required = true) @Valid @RequestBody EditDispositionNewCreditRqDTO editDispositionNewCreditRqDTO
-            ) {
-            return getDelegate().editDispositionNewCredit(id, editDispositionNewCreditRqDTO);
-            }
+        ResponseEntity<Void> editDispositionNewCredit(@Parameter(name = "id", description = "Идентификатор распоряжения businessId", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
+        @Parameter(name = "EditDispositionNewCreditRequest", description = "", required = true) @Valid @RequestBody EditDispositionNewCreditRequest editDispositionNewCreditRqDTO);
 
 
             /**
@@ -223,19 +200,19 @@ import jakarta.annotation.Generated;
                 responses = {
                     @ApiResponse(responseCode = "200", description = "ОК  Успешное выполнение операции."),
                     @ApiResponse(responseCode = "400", description = "Bad request  Ошибка валидации  Входные параметры не соответствуют требованиям/условиям  Некорректный синтаксис запроса", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "401", description = "Unauthorized  Не передан токен авторизации", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "403", description = "Forbidden  Отсутствуют права на выполнение операции", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "404", description = "Not Found  Распоряжение не найдено", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "500", description = "Internal Server Error  Недоступность сервера  Иные неучтенные ошибки", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     })
                 },
                 security = {
@@ -251,12 +228,8 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<Void> editStatusDispositionNewCredit(
-        @Parameter(name = "id", description = "Идентификатор распоряжения businessId", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "EditStatusDispositionNewCreditRqDTO", description = "") @Valid @RequestBody(required = false) EditStatusDispositionNewCreditRqDTO editStatusDispositionNewCreditRqDTO
-            ) {
-            return getDelegate().editStatusDispositionNewCredit(id, editStatusDispositionNewCreditRqDTO);
-            }
+        ResponseEntity<Void> editStatusDispositionNewCredit(@Parameter(name = "id", description = "Идентификатор распоряжения businessId", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
+        @Parameter(name = "EditStatusDispositionNewCreditRequest", description = "") @Valid @RequestBody(required = false) EditStatusDispositionNewCreditRequest editStatusDispositionNewCreditRqDTO);
 
 
             /**
@@ -276,16 +249,16 @@ import jakarta.annotation.Generated;
                     tags = { "DispositionsNewContract" },
                 responses = {
                     @ApiResponse(responseCode = "200", description = "Операция успешно выполнена.", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = GetDispositionNewContractByIdRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = GetDispositionNewContractByIdResponse.class))
                     }),
                     @ApiResponse(responseCode = "400", description = "Bad request. Ошибка валидации. Входные параметры не соответствуют требованиям/условиям.", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "401", description = "Доступ запрещен."),
                     @ApiResponse(responseCode = "403", description = "Доступ запрещен. Недостаточно прав."),
                     @ApiResponse(responseCode = "404", description = "Распоряжение не найдено."),
                     @ApiResponse(responseCode = "500", description = "Произошла непредвиденная ошибка.", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     })
                 },
                 security = {
@@ -300,11 +273,7 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<GetDispositionNewContractByIdRsDTO> getDispositionNewContractById(
-        @Parameter(name = "id", description = "Идентификатор распоряжения businessId", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id
-            ) {
-            return getDelegate().getDispositionNewContractById(id);
-            }
+        ResponseEntity<GetDispositionNewContractByIdResponse> getDispositionNewContractById(@Parameter(name = "id", description = "Идентификатор распоряжения businessId", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id);
 
 
             /**
@@ -323,17 +292,17 @@ import jakarta.annotation.Generated;
                     tags = { "Tech" },
                 responses = {
                     @ApiResponse(responseCode = "201", description = "Операция успешно выполнена. Сущность создана.", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = CreateDispositionNewContractRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = CreateDispositionNewContractResponse.class))
                     }),
                     @ApiResponse(responseCode = "400", description = "Bad request. Ошибка валидации. Входные параметры не соответствуют требованиям/условиям.", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "401", description = "Доступ запрещен.", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "403", description = "Доступ запрещен. Недостаточно прав."),
                     @ApiResponse(responseCode = "500", description = "Произошла непредвиденная ошибка.", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     })
                 },
                 security = {
@@ -347,12 +316,6 @@ import jakarta.annotation.Generated;
             consumes = { "application/json" }
             )
                 @ru.domrf.elka.lib.security_starter.annotation.CheckServiceToken
-        
-        default ResponseEntity<CreateDispositionNewContractRsDTO> createDispositionNewContractTech(
-        @Parameter(name = "CreateDispositionNewContractRqDTO", description = "", required = true) @Valid @RequestBody CreateDispositionNewContractRqDTO createDispositionNewContractRqDTO
-            ) {
-            return getDelegate().createDispositionNewContract(createDispositionNewContractRqDTO);
-            }
             /**
             * DELETE /api/v1/dispositions/new-credit/{id} : Метод удаления распоряжению типа Постановка на Учет КД
             *
@@ -371,19 +334,19 @@ import jakarta.annotation.Generated;
                 responses = {
                     @ApiResponse(responseCode = "200", description = "ОК  Распоряжение ПнУКД удалено."),
                     @ApiResponse(responseCode = "400", description = "Bad request  Ошибка валидации  Входные параметры не соответствуют требованиям/условиям  Некорректный синтаксис запроса", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "401", description = "Unauthorized  Не передан токен авторизации", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "403", description = "Forbidden  Отсутствуют права на выполнение операции", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "404", description = "Not Found  Распоряжение не найдено", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "500", description = "Internal Server Error  Недоступность сервера  Иные неучтенные ошибки", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     })
                 },
                 security = {
@@ -396,12 +359,6 @@ import jakarta.annotation.Generated;
             produces = { "application/json" }
             )
                 @ru.domrf.elka.lib.security_starter.annotation.CheckServiceToken
-        
-        default ResponseEntity<Void> deleteDispositionNewCreditDetailsByIdTech(
-        @Parameter(name = "id", description = "Идентификатор распоряжения businessId", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id
-            ) {
-            return getDelegate().deleteDispositionNewCreditDetailsById(id);
-            }
             /**
             * PUT /api/v1/dispositions/new-credit/{id} : Метод изменения распоряжения типа постановка на учет кредитного договора
             *
@@ -422,22 +379,22 @@ import jakarta.annotation.Generated;
                 responses = {
                     @ApiResponse(responseCode = "200", description = "ОК  Успешное выполнение операции."),
                     @ApiResponse(responseCode = "400", description = "Bad request  Ошибка валидации  Входные параметры не соответствуют требованиям/условиям  Некорректный синтаксис запроса", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "401", description = "Unauthorized  Не передан токен авторизации", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "403", description = "Forbidden  Отсутствуют права на выполнение операции", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "404", description = "Not Found  Распоряжение не найдено", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "409", description = "Conflict  Некорректный статус распоряжения", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "500", description = "Internal Server Error  Недоступность сервера  Иные неучтенные ошибки", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     })
                 },
                 security = {
@@ -451,13 +408,6 @@ import jakarta.annotation.Generated;
             consumes = { "application/json" }
             )
                 @ru.domrf.elka.lib.security_starter.annotation.CheckServiceToken
-        
-        default ResponseEntity<Void> editDispositionNewCreditTech(
-        @Parameter(name = "id", description = "Идентификатор распоряжения businessId", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "EditDispositionNewCreditRqDTO", description = "", required = true) @Valid @RequestBody EditDispositionNewCreditRqDTO editDispositionNewCreditRqDTO
-            ) {
-            return getDelegate().editDispositionNewCredit(id, editDispositionNewCreditRqDTO);
-            }
             /**
             * PUT /api/v1/dispositions/new-credit/{id}/status : Метод изменения статуса ДОГОВОРА(Контейнера) распоряжения типа ПнУКД
             *
@@ -477,19 +427,19 @@ import jakarta.annotation.Generated;
                 responses = {
                     @ApiResponse(responseCode = "200", description = "ОК  Успешное выполнение операции."),
                     @ApiResponse(responseCode = "400", description = "Bad request  Ошибка валидации  Входные параметры не соответствуют требованиям/условиям  Некорректный синтаксис запроса", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "401", description = "Unauthorized  Не передан токен авторизации", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "403", description = "Forbidden  Отсутствуют права на выполнение операции", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "404", description = "Not Found  Распоряжение не найдено", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "500", description = "Internal Server Error  Недоступность сервера  Иные неучтенные ошибки", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     })
                 },
                 security = {
@@ -503,13 +453,6 @@ import jakarta.annotation.Generated;
             consumes = { "application/json" }
             )
                 @ru.domrf.elka.lib.security_starter.annotation.CheckServiceToken
-        
-        default ResponseEntity<Void> editStatusDispositionNewCreditTech(
-        @Parameter(name = "id", description = "Идентификатор распоряжения businessId", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id,
-        @Parameter(name = "EditStatusDispositionNewCreditRqDTO", description = "") @Valid @RequestBody(required = false) EditStatusDispositionNewCreditRqDTO editStatusDispositionNewCreditRqDTO
-            ) {
-            return getDelegate().editStatusDispositionNewCredit(id, editStatusDispositionNewCreditRqDTO);
-            }
             /**
             * GET /api/v1/dispositions/new-credit/{id} : Метод получения детальной информации о распоряжении по идентификатору (by businessId)
             *
@@ -527,16 +470,16 @@ import jakarta.annotation.Generated;
                     tags = { "Tech" },
                 responses = {
                     @ApiResponse(responseCode = "200", description = "Операция успешно выполнена.", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = GetDispositionNewContractByIdRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = GetDispositionNewContractByIdResponse.class))
                     }),
                     @ApiResponse(responseCode = "400", description = "Bad request. Ошибка валидации. Входные параметры не соответствуют требованиям/условиям.", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "401", description = "Доступ запрещен."),
                     @ApiResponse(responseCode = "403", description = "Доступ запрещен. Недостаточно прав."),
                     @ApiResponse(responseCode = "404", description = "Распоряжение не найдено."),
                     @ApiResponse(responseCode = "500", description = "Произошла непредвиденная ошибка.", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     })
                 },
                 security = {
@@ -549,12 +492,6 @@ import jakarta.annotation.Generated;
             produces = { "application/json" }
             )
                 @ru.domrf.elka.lib.security_starter.annotation.CheckServiceToken
-        
-        default ResponseEntity<GetDispositionNewContractByIdRsDTO> getDispositionNewContractByIdTech(
-        @Parameter(name = "id", description = "Идентификатор распоряжения businessId", required = true, in = ParameterIn.PATH) @PathVariable("id") UUID id
-            ) {
-            return getDelegate().getDispositionNewContractById(id);
-            }
 
 
         }

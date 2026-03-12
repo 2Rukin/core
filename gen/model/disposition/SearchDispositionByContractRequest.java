@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,33 +17,38 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * SearchDispositionByContractRqDTO
+ * SearchDispositionByContractRequest
  */
 
 @JsonTypeName("searchDispositionByContractRqDTO")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class SearchDispositionByContractRqDTO {
+/**
+ * DTO SearchDispositionByContractRequest.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class SearchDispositionByContractRequest {
 
   private UUID contractId;
 
   private Integer contractVersion;
 
-  public SearchDispositionByContractRqDTO() {
+  public SearchDispositionByContractRequest() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public SearchDispositionByContractRqDTO(UUID contractId, Integer contractVersion) {
+  public SearchDispositionByContractRequest(UUID contractId, Integer contractVersion) {
     this.contractId = contractId;
     this.contractVersion = contractVersion;
   }
 
-  public SearchDispositionByContractRqDTO contractId(UUID contractId) {
+  public SearchDispositionByContractRequest contractId(UUID contractId) {
     this.contractId = contractId;
     return this;
   }
@@ -60,7 +68,7 @@ public class SearchDispositionByContractRqDTO {
     this.contractId = contractId;
   }
 
-  public SearchDispositionByContractRqDTO contractVersion(Integer contractVersion) {
+  public SearchDispositionByContractRequest contractVersion(Integer contractVersion) {
     this.contractVersion = contractVersion;
     return this;
   }
@@ -88,7 +96,7 @@ public class SearchDispositionByContractRqDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SearchDispositionByContractRqDTO searchDispositionByContractRqDTO = (SearchDispositionByContractRqDTO) o;
+    SearchDispositionByContractRequest searchDispositionByContractRqDTO = (SearchDispositionByContractRequest) o;
     return Objects.equals(this.contractId, searchDispositionByContractRqDTO.contractId) &&
         Objects.equals(this.contractVersion, searchDispositionByContractRqDTO.contractVersion);
   }
@@ -101,7 +109,7 @@ public class SearchDispositionByContractRqDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SearchDispositionByContractRqDTO {\n");
+    sb.append("class SearchDispositionByContractRequest {\n");
     sb.append("    contractId: ").append(toIndentedString(contractId)).append("\n");
     sb.append("    contractVersion: ").append(toIndentedString(contractVersion)).append("\n");
     sb.append("}");

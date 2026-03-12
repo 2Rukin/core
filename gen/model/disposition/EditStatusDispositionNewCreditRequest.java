@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,15 +19,20 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * EditStatusDispositionCloseCreditRqDTO
+ * EditStatusDispositionNewCreditRequest
  */
 
-@JsonTypeName("editStatusDispositionCloseCreditRqDTO")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class EditStatusDispositionCloseCreditRqDTO {
+@JsonTypeName("editStatusDispositionNewCreditRqDTO")
+/**
+ * DTO EditStatusDispositionNewCreditRequest.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class EditStatusDispositionNewCreditRequest {
 
   private DispositionStatusDTO status;
 
@@ -34,20 +42,20 @@ public class EditStatusDispositionCloseCreditRqDTO {
 
   private String comment;
 
-  public EditStatusDispositionCloseCreditRqDTO() {
+  public EditStatusDispositionNewCreditRequest() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public EditStatusDispositionCloseCreditRqDTO(DispositionStatusDTO status, UUID contractId, Integer contractVersion) {
+  public EditStatusDispositionNewCreditRequest(DispositionStatusDTO status, UUID contractId, Integer contractVersion) {
     this.status = status;
     this.contractId = contractId;
     this.contractVersion = contractVersion;
   }
 
-  public EditStatusDispositionCloseCreditRqDTO status(DispositionStatusDTO status) {
+  public EditStatusDispositionNewCreditRequest status(DispositionStatusDTO status) {
     this.status = status;
     return this;
   }
@@ -67,7 +75,7 @@ public class EditStatusDispositionCloseCreditRqDTO {
     this.status = status;
   }
 
-  public EditStatusDispositionCloseCreditRqDTO contractId(UUID contractId) {
+  public EditStatusDispositionNewCreditRequest contractId(UUID contractId) {
     this.contractId = contractId;
     return this;
   }
@@ -87,7 +95,7 @@ public class EditStatusDispositionCloseCreditRqDTO {
     this.contractId = contractId;
   }
 
-  public EditStatusDispositionCloseCreditRqDTO contractVersion(Integer contractVersion) {
+  public EditStatusDispositionNewCreditRequest contractVersion(Integer contractVersion) {
     this.contractVersion = contractVersion;
     return this;
   }
@@ -107,7 +115,7 @@ public class EditStatusDispositionCloseCreditRqDTO {
     this.contractVersion = contractVersion;
   }
 
-  public EditStatusDispositionCloseCreditRqDTO comment(String comment) {
+  public EditStatusDispositionNewCreditRequest comment(String comment) {
     this.comment = comment;
     return this;
   }
@@ -135,11 +143,11 @@ public class EditStatusDispositionCloseCreditRqDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EditStatusDispositionCloseCreditRqDTO editStatusDispositionCloseCreditRqDTO = (EditStatusDispositionCloseCreditRqDTO) o;
-    return Objects.equals(this.status, editStatusDispositionCloseCreditRqDTO.status) &&
-        Objects.equals(this.contractId, editStatusDispositionCloseCreditRqDTO.contractId) &&
-        Objects.equals(this.contractVersion, editStatusDispositionCloseCreditRqDTO.contractVersion) &&
-        Objects.equals(this.comment, editStatusDispositionCloseCreditRqDTO.comment);
+    EditStatusDispositionNewCreditRequest editStatusDispositionNewCreditRqDTO = (EditStatusDispositionNewCreditRequest) o;
+    return Objects.equals(this.status, editStatusDispositionNewCreditRqDTO.status) &&
+        Objects.equals(this.contractId, editStatusDispositionNewCreditRqDTO.contractId) &&
+        Objects.equals(this.contractVersion, editStatusDispositionNewCreditRqDTO.contractVersion) &&
+        Objects.equals(this.comment, editStatusDispositionNewCreditRqDTO.comment);
   }
 
   @Override
@@ -150,7 +158,7 @@ public class EditStatusDispositionCloseCreditRqDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EditStatusDispositionCloseCreditRqDTO {\n");
+    sb.append("class EditStatusDispositionNewCreditRequest {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    contractId: ").append(toIndentedString(contractId)).append("\n");
     sb.append("    contractVersion: ").append(toIndentedString(contractVersion)).append("\n");

@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -13,14 +16,19 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * GetAllDispositionsRsDTO
+ * GetAllDispositionsResponse
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class GetAllDispositionsRsDTO {
+/**
+ * DTO GetAllDispositionsResponse.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class GetAllDispositionsResponse {
 
   private UUID id;
 
@@ -58,7 +66,7 @@ public class GetAllDispositionsRsDTO {
 
   private String contractClientName;
 
-  public GetAllDispositionsRsDTO id(UUID id) {
+  public GetAllDispositionsResponse id(UUID id) {
     this.id = id;
     return this;
   }
@@ -78,7 +86,7 @@ public class GetAllDispositionsRsDTO {
     this.id = id;
   }
 
-  public GetAllDispositionsRsDTO number(String number) {
+  public GetAllDispositionsResponse number(String number) {
     this.number = number;
     return this;
   }
@@ -98,7 +106,7 @@ public class GetAllDispositionsRsDTO {
     this.number = number;
   }
 
-  public GetAllDispositionsRsDTO type(String type) {
+  public GetAllDispositionsResponse type(String type) {
     this.type = type;
     return this;
   }
@@ -118,7 +126,7 @@ public class GetAllDispositionsRsDTO {
     this.type = type;
   }
 
-  public GetAllDispositionsRsDTO status(String status) {
+  public GetAllDispositionsResponse status(String status) {
     this.status = status;
     return this;
   }
@@ -138,7 +146,7 @@ public class GetAllDispositionsRsDTO {
     this.status = status;
   }
 
-  public GetAllDispositionsRsDTO date(Long date) {
+  public GetAllDispositionsResponse date(Long date) {
     this.date = date;
     return this;
   }
@@ -158,7 +166,7 @@ public class GetAllDispositionsRsDTO {
     this.date = date;
   }
 
-  public GetAllDispositionsRsDTO executorId(UUID executorId) {
+  public GetAllDispositionsResponse executorId(UUID executorId) {
     this.executorId = executorId;
     return this;
   }
@@ -178,7 +186,7 @@ public class GetAllDispositionsRsDTO {
     this.executorId = executorId;
   }
 
-  public GetAllDispositionsRsDTO executorTitle(String executorTitle) {
+  public GetAllDispositionsResponse executorTitle(String executorTitle) {
     this.executorTitle = executorTitle;
     return this;
   }
@@ -198,7 +206,7 @@ public class GetAllDispositionsRsDTO {
     this.executorTitle = executorTitle;
   }
 
-  public GetAllDispositionsRsDTO authorizedId(UUID authorizedId) {
+  public GetAllDispositionsResponse authorizedId(UUID authorizedId) {
     this.authorizedId = authorizedId;
     return this;
   }
@@ -218,7 +226,7 @@ public class GetAllDispositionsRsDTO {
     this.authorizedId = authorizedId;
   }
 
-  public GetAllDispositionsRsDTO authorizedTitle(String authorizedTitle) {
+  public GetAllDispositionsResponse authorizedTitle(String authorizedTitle) {
     this.authorizedTitle = authorizedTitle;
     return this;
   }
@@ -238,7 +246,7 @@ public class GetAllDispositionsRsDTO {
     this.authorizedTitle = authorizedTitle;
   }
 
-  public GetAllDispositionsRsDTO contractId(UUID contractId) {
+  public GetAllDispositionsResponse contractId(UUID contractId) {
     this.contractId = contractId;
     return this;
   }
@@ -258,7 +266,7 @@ public class GetAllDispositionsRsDTO {
     this.contractId = contractId;
   }
 
-  public GetAllDispositionsRsDTO contractVersion(Integer contractVersion) {
+  public GetAllDispositionsResponse contractVersion(Integer contractVersion) {
     this.contractVersion = contractVersion;
     return this;
   }
@@ -278,7 +286,7 @@ public class GetAllDispositionsRsDTO {
     this.contractVersion = contractVersion;
   }
 
-  public GetAllDispositionsRsDTO operationDate(Long operationDate) {
+  public GetAllDispositionsResponse operationDate(Long operationDate) {
     this.operationDate = operationDate;
     return this;
   }
@@ -298,7 +306,7 @@ public class GetAllDispositionsRsDTO {
     this.operationDate = operationDate;
   }
 
-  public GetAllDispositionsRsDTO createdTimestamp(Long createdTimestamp) {
+  public GetAllDispositionsResponse createdTimestamp(Long createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
   }
@@ -318,7 +326,7 @@ public class GetAllDispositionsRsDTO {
     this.createdTimestamp = createdTimestamp;
   }
 
-  public GetAllDispositionsRsDTO createdBy(UUID createdBy) {
+  public GetAllDispositionsResponse createdBy(UUID createdBy) {
     this.createdBy = createdBy;
     return this;
   }
@@ -338,7 +346,7 @@ public class GetAllDispositionsRsDTO {
     this.createdBy = createdBy;
   }
 
-  public GetAllDispositionsRsDTO lastUpdatedTimestamp(Long lastUpdatedTimestamp) {
+  public GetAllDispositionsResponse lastUpdatedTimestamp(Long lastUpdatedTimestamp) {
     this.lastUpdatedTimestamp = lastUpdatedTimestamp;
     return this;
   }
@@ -358,7 +366,7 @@ public class GetAllDispositionsRsDTO {
     this.lastUpdatedTimestamp = lastUpdatedTimestamp;
   }
 
-  public GetAllDispositionsRsDTO lastUpdatedBy(UUID lastUpdatedBy) {
+  public GetAllDispositionsResponse lastUpdatedBy(UUID lastUpdatedBy) {
     this.lastUpdatedBy = lastUpdatedBy;
     return this;
   }
@@ -378,7 +386,7 @@ public class GetAllDispositionsRsDTO {
     this.lastUpdatedBy = lastUpdatedBy;
   }
 
-  public GetAllDispositionsRsDTO contractClientInn(String contractClientInn) {
+  public GetAllDispositionsResponse contractClientInn(String contractClientInn) {
     this.contractClientInn = contractClientInn;
     return this;
   }
@@ -398,7 +406,7 @@ public class GetAllDispositionsRsDTO {
     this.contractClientInn = contractClientInn;
   }
 
-  public GetAllDispositionsRsDTO contractClientName(String contractClientName) {
+  public GetAllDispositionsResponse contractClientName(String contractClientName) {
     this.contractClientName = contractClientName;
     return this;
   }
@@ -426,7 +434,7 @@ public class GetAllDispositionsRsDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetAllDispositionsRsDTO getAllDispositionsRsDTO = (GetAllDispositionsRsDTO) o;
+    GetAllDispositionsResponse getAllDispositionsRsDTO = (GetAllDispositionsResponse) o;
     return Objects.equals(this.id, getAllDispositionsRsDTO.id) &&
         Objects.equals(this.number, getAllDispositionsRsDTO.number) &&
         Objects.equals(this.type, getAllDispositionsRsDTO.type) &&
@@ -455,7 +463,7 @@ public class GetAllDispositionsRsDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetAllDispositionsRsDTO {\n");
+    sb.append("class GetAllDispositionsResponse {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

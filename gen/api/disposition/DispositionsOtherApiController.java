@@ -1,8 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.api.disposition;
 
 import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.CreateDispositionOtherRequest;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditDispositionOtherRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorRsDTO;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.EditDispositionOtherRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorResponse;
 import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetDispositionOtherByUUIdResponse;
 import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ShortDispositionInfo;
 import java.util.UUID;

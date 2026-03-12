@@ -1,12 +1,12 @@
 package ru.domrf.elka.cdrd.contract_service.gen.api.disposition;
 
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.DispositionPrintRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetAllDispositionsRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetDispositionByContractRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.PageFindDispositionsByNumberRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.PageGetAllDispositionsRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.SearchDispositionByContractRqDTO;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.DispositionPrintResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetAllDispositionsRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetDispositionByContractResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.PageFindDispositionsByNumberResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.PageGetAllDispositionsResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.SearchDispositionByContractRequest;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -43,7 +43,7 @@ public interface DispositionsApiDelegate {
      *         or Internal Server Error (status code 500)
      * @see DispositionsApi#findDispositionByNumber
      */
-    default ResponseEntity<PageFindDispositionsByNumberRsDTO> findDispositionByNumber(String searchKey,
+    default ResponseEntity<PageFindDispositionsByNumberResponse> findDispositionByNumber(String searchKey,
         Integer size,
         Integer page) {
         getRequest().ifPresent(request -> {
@@ -81,7 +81,7 @@ public interface DispositionsApiDelegate {
      *         or Произошла непредвиденная ошибка. (status code 500)
      * @see DispositionsApi#getAllDispositions
      */
-    default ResponseEntity<PageGetAllDispositionsRsDTO> getAllDispositions(GetAllDispositionsRqDTO getAllDispositionsRqDTO) {
+    default ResponseEntity<PageGetAllDispositionsResponse> getAllDispositions(GetAllDispositionsRequest getAllDispositionsRqDTO) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
@@ -116,7 +116,7 @@ public interface DispositionsApiDelegate {
      *         or Произошла непредвиденная ошибка. (status code 500)
      * @see DispositionsApi#printDisposition
      */
-    default ResponseEntity<DispositionPrintRsDTO> printDisposition(UUID id) {
+    default ResponseEntity<DispositionPrintResponse> printDisposition(UUID id) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
@@ -195,7 +195,7 @@ public interface DispositionsApiDelegate {
      *         or Internal Server Error (status code 500)
      * @see DispositionsApi#searchDispositionByContractVersion
      */
-    default ResponseEntity<GetDispositionByContractRsDTO> searchDispositionByContractVersion(SearchDispositionByContractRqDTO searchDispositionByContractRqDTO) {
+    default ResponseEntity<GetDispositionByContractResponse> searchDispositionByContractVersion(SearchDispositionByContractRequest searchDispositionByContractRqDTO) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {

@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.contract;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -19,7 +22,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
  * Элемент списка кредитных договоров. На текущий момент сопадает с universal
@@ -27,7 +29,13 @@ import jakarta.annotation.Generated;
 
 @Schema(name = "getContractsItem", description = "Элемент списка кредитных договоров. На текущий момент сопадает с universal")
 @JsonTypeName("getContractsItem")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:01.318520700+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
+/**
+ * DTO GetContractsItem.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
 public class GetContractsItem {
 
   private UUID id;

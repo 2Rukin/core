@@ -1,12 +1,12 @@
 package ru.domrf.elka.cdrd.contract_service.gen.api.disposition;
 
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.DispositionPrintRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetAllDispositionsRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetDispositionByContractRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.PageFindDispositionsByNumberRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.PageGetAllDispositionsRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.SearchDispositionByContractRqDTO;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.DispositionPrintResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.ErrorResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetAllDispositionsRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.GetDispositionByContractResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.PageFindDispositionsByNumberResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.PageGetAllDispositionsResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.disposition.SearchDispositionByContractRequest;
 import java.util.UUID;
 
 

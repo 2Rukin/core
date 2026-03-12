@@ -1,5 +1,8 @@
 package ru.domrf.elka.cdrd.contract_service.gen.model.disposition;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,15 +19,20 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
- * EditStatusDispositionChangeCreditRqDTO
+ * EditStatusDispositionChangeCreditRequest
  */
 
 @JsonTypeName("editStatusDispositionChangeCreditRqDTO")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.562804400+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
-public class EditStatusDispositionChangeCreditRqDTO {
+/**
+ * DTO EditStatusDispositionChangeCreditRequest.
+ *
+ * @author GPT-5.2-Codex
+ */
+@Data
+@Builder
+public class EditStatusDispositionChangeCreditRequest {
 
   private DispositionStatusDTO status;
 
@@ -34,20 +42,20 @@ public class EditStatusDispositionChangeCreditRqDTO {
 
   private String comment;
 
-  public EditStatusDispositionChangeCreditRqDTO() {
+  public EditStatusDispositionChangeCreditRequest() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public EditStatusDispositionChangeCreditRqDTO(DispositionStatusDTO status, UUID contractId, Integer contractVersion) {
+  public EditStatusDispositionChangeCreditRequest(DispositionStatusDTO status, UUID contractId, Integer contractVersion) {
     this.status = status;
     this.contractId = contractId;
     this.contractVersion = contractVersion;
   }
 
-  public EditStatusDispositionChangeCreditRqDTO status(DispositionStatusDTO status) {
+  public EditStatusDispositionChangeCreditRequest status(DispositionStatusDTO status) {
     this.status = status;
     return this;
   }
@@ -67,7 +75,7 @@ public class EditStatusDispositionChangeCreditRqDTO {
     this.status = status;
   }
 
-  public EditStatusDispositionChangeCreditRqDTO contractId(UUID contractId) {
+  public EditStatusDispositionChangeCreditRequest contractId(UUID contractId) {
     this.contractId = contractId;
     return this;
   }
@@ -87,7 +95,7 @@ public class EditStatusDispositionChangeCreditRqDTO {
     this.contractId = contractId;
   }
 
-  public EditStatusDispositionChangeCreditRqDTO contractVersion(Integer contractVersion) {
+  public EditStatusDispositionChangeCreditRequest contractVersion(Integer contractVersion) {
     this.contractVersion = contractVersion;
     return this;
   }
@@ -107,7 +115,7 @@ public class EditStatusDispositionChangeCreditRqDTO {
     this.contractVersion = contractVersion;
   }
 
-  public EditStatusDispositionChangeCreditRqDTO comment(String comment) {
+  public EditStatusDispositionChangeCreditRequest comment(String comment) {
     this.comment = comment;
     return this;
   }
@@ -135,7 +143,7 @@ public class EditStatusDispositionChangeCreditRqDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EditStatusDispositionChangeCreditRqDTO editStatusDispositionChangeCreditRqDTO = (EditStatusDispositionChangeCreditRqDTO) o;
+    EditStatusDispositionChangeCreditRequest editStatusDispositionChangeCreditRqDTO = (EditStatusDispositionChangeCreditRequest) o;
     return Objects.equals(this.status, editStatusDispositionChangeCreditRqDTO.status) &&
         Objects.equals(this.contractId, editStatusDispositionChangeCreditRqDTO.contractId) &&
         Objects.equals(this.contractVersion, editStatusDispositionChangeCreditRqDTO.contractVersion) &&
@@ -150,7 +158,7 @@ public class EditStatusDispositionChangeCreditRqDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EditStatusDispositionChangeCreditRqDTO {\n");
+    sb.append("class EditStatusDispositionChangeCreditRequest {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    contractId: ").append(toIndentedString(contractId)).append("\n");
     sb.append("    contractVersion: ").append(toIndentedString(contractVersion)).append("\n");

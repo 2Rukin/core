@@ -6,14 +6,12 @@
 */
 package ru.domrf.elka.cdrd.contract_service.gen.api.tariff;
 
-import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.ErrorRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffListRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffRsDTO;
-    import io.swagger.v3.oas.annotations.ExternalDocumentation;
+import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.ErrorResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffListResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffResponse;
     import io.swagger.v3.oas.annotations.Operation;
     import io.swagger.v3.oas.annotations.Parameter;
-    import io.swagger.v3.oas.annotations.Parameters;
     import io.swagger.v3.oas.annotations.media.ArraySchema;
     import io.swagger.v3.oas.annotations.media.Content;
     import io.swagger.v3.oas.annotations.media.Schema;
@@ -24,22 +22,14 @@ import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffRsDTO;
     import org.springframework.http.ResponseEntity;
     import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
     import jakarta.validation.Valid;
     import jakarta.validation.constraints.*;
-import java.util.List;
-import java.util.Map;
-import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-03-12T15:43:04.237390300+03:00[Europe/Moscow]", comments = "Generator version: 7.5.0")
     @Validated
     @Tag(name = "ContractTariffMethods", description = "Методы управления тарифами с формулами")
+    @RequestMapping("/api/v1/contracts")
     public interface ContractTariffMethodsApi {
-
-                default ContractTariffMethodsApiDelegate getDelegate() {
-                return new ContractTariffMethodsApiDelegate() {};
-                }
 
             /**
             * POST /api/v1/contracts/tariff : Создать тариф
@@ -60,22 +50,22 @@ import jakarta.annotation.Generated;
                     tags = { "ContractTariffMethods" },
                 responses = {
                     @ApiResponse(responseCode = "200", description = "OK", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = TariffRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = TariffResponse.class))
                     }),
                     @ApiResponse(responseCode = "400", description = "Bad request", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "404", description = "Not found", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     })
                 }
                 )
@@ -88,11 +78,7 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<TariffRsDTO> createTariff(
-        @Parameter(name = "TariffRqDTO", description = "", required = true) @Valid @RequestBody TariffRqDTO tariffRqDTO
-            ) {
-            return getDelegate().createTariff(tariffRqDTO);
-            }
+        ResponseEntity<TariffResponse> createTariff(@Parameter(name = "TariffRequest", description = "", required = true) @Valid @RequestBody TariffRequest tariffRqDTO);
 
 
             /**
@@ -114,22 +100,22 @@ import jakarta.annotation.Generated;
                     tags = { "ContractTariffMethods" },
                 responses = {
                     @ApiResponse(responseCode = "200", description = "OK", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = TariffRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = TariffResponse.class))
                     }),
                     @ApiResponse(responseCode = "400", description = "Bad request", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "404", description = "Not found", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     })
                 }
                 )
@@ -141,11 +127,7 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<TariffRsDTO> deleteTariff(
-        @Parameter(name = "id", description = "Идентификатор объекта", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
-            ) {
-            return getDelegate().deleteTariff(id);
-            }
+        ResponseEntity<TariffResponse> deleteTariff(@Parameter(name = "id", description = "Идентификатор объекта", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id);
 
 
             /**
@@ -167,22 +149,22 @@ import jakarta.annotation.Generated;
                     tags = { "ContractTariffMethods" },
                 responses = {
                     @ApiResponse(responseCode = "200", description = "OK", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = TariffRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = TariffResponse.class))
                     }),
                     @ApiResponse(responseCode = "400", description = "Bad request", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "404", description = "Not found", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     })
                 }
                 )
@@ -194,11 +176,7 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<TariffRsDTO> getTariff(
-        @Parameter(name = "id", description = "Идентификатор объекта", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
-            ) {
-            return getDelegate().getTariff(id);
-            }
+        ResponseEntity<TariffResponse> getTariff(@Parameter(name = "id", description = "Идентификатор объекта", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id);
 
 
             /**
@@ -219,22 +197,22 @@ import jakarta.annotation.Generated;
                     tags = { "ContractTariffMethods" },
                 responses = {
                     @ApiResponse(responseCode = "200", description = "OK", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = TariffListRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = TariffListResponse.class))
                     }),
                     @ApiResponse(responseCode = "400", description = "Bad request", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "404", description = "Not found", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     })
                 }
                 )
@@ -246,11 +224,7 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<TariffListRsDTO> getTariffList(
-        
-            ) {
-            return getDelegate().getTariffList();
-            }
+        ResponseEntity<TariffListResponse> getTariffList();
 
 
             /**
@@ -273,22 +247,22 @@ import jakarta.annotation.Generated;
                     tags = { "ContractTariffMethods" },
                 responses = {
                     @ApiResponse(responseCode = "200", description = "OK", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = TariffRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = TariffResponse.class))
                     }),
                     @ApiResponse(responseCode = "400", description = "Bad request", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "404", description = "Not found", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     }),
                     @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorRsDTO.class))
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
                     })
                 }
                 )
@@ -301,12 +275,8 @@ import jakarta.annotation.Generated;
             @ru.domrf.elka.lib.security_starter.annotation.CheckEmployeeInfo(scopes = {ru.domrf.elka.lib.user_model.model.enumeration.EmployeeInfoScope.PROFILE})
             @org.springframework.security.access.prepost.PreAuthorize("hasAuthority('DISPOSITION_VIEW')")
         
-        default ResponseEntity<TariffRsDTO> updateTariff(
-        @Parameter(name = "id", description = "Идентификатор объекта", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id,
-        @Parameter(name = "TariffRqDTO", description = "", required = true) @Valid @RequestBody TariffRqDTO tariffRqDTO
-            ) {
-            return getDelegate().updateTariff(id, tariffRqDTO);
-            }
+        ResponseEntity<TariffResponse> updateTariff(@Parameter(name = "id", description = "Идентификатор объекта", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id,
+        @Parameter(name = "TariffRequest", description = "", required = true) @Valid @RequestBody TariffRequest tariffRqDTO);
 
 
 

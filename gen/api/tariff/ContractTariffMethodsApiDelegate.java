@@ -1,9 +1,9 @@
 package ru.domrf.elka.cdrd.contract_service.gen.api.tariff;
 
-import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.ErrorRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffListRsDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffRqDTO;
-import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffRsDTO;
+import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.ErrorResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffListResponse;
+import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffRequest;
+import ru.domrf.elka.cdrd.contract_service.gen.model.tariff.TariffResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +41,7 @@ public interface ContractTariffMethodsApiDelegate {
      *         or Internal Server Error (status code 500)
      * @see ContractTariffMethodsApi#createTariff
      */
-    default ResponseEntity<TariffRsDTO> createTariff(TariffRqDTO tariffRqDTO) {
+    default ResponseEntity<TariffResponse> createTariff(TariffRequest tariffRqDTO) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
@@ -93,7 +93,7 @@ public interface ContractTariffMethodsApiDelegate {
      *         or Internal Server Error (status code 500)
      * @see ContractTariffMethodsApi#deleteTariff
      */
-    default ResponseEntity<TariffRsDTO> deleteTariff(Integer id) {
+    default ResponseEntity<TariffResponse> deleteTariff(Integer id) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
@@ -145,7 +145,7 @@ public interface ContractTariffMethodsApiDelegate {
      *         or Internal Server Error (status code 500)
      * @see ContractTariffMethodsApi#getTariff
      */
-    default ResponseEntity<TariffRsDTO> getTariff(Integer id) {
+    default ResponseEntity<TariffResponse> getTariff(Integer id) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
@@ -196,7 +196,7 @@ public interface ContractTariffMethodsApiDelegate {
      *         or Internal Server Error (status code 500)
      * @see ContractTariffMethodsApi#getTariffList
      */
-    default ResponseEntity<TariffListRsDTO> getTariffList() {
+    default ResponseEntity<TariffListResponse> getTariffList() {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
@@ -249,8 +249,8 @@ public interface ContractTariffMethodsApiDelegate {
      *         or Internal Server Error (status code 500)
      * @see ContractTariffMethodsApi#updateTariff
      */
-    default ResponseEntity<TariffRsDTO> updateTariff(Integer id,
-        TariffRqDTO tariffRqDTO) {
+    default ResponseEntity<TariffResponse> updateTariff(Integer id,
+        TariffRequest tariffRqDTO) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
